@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maşın ehtiyat hissələri</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="Sarı Siyah Sade Modern Araç Kiralama Logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="header_1">
+            <div class="logo">
+                <a href="index.html"><img src="Sarı Siyah Sade Modern Araç Kiralama Logo.png" alt="logo for car parts"></a>
+                <a href="index.html">Auto Part</a>
+            </div>
+            <div class="input">
+                <input type="search" placeholder="Axtarış..">
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <div class="contact">
+                <a href="#"><i class="fa-solid fa-phone"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            </div>
+        </div>
+        <div class="header_2">
+            <button class="menu-btn" onclick="openMenu()">☰ Məhsullar</button>
+            <a href="home.html">Əsas səhifə</a>
+            <a href="about.html">Haqqımızda</a>
+            <a href="contact.html">Əlaqə</a>
+            <a href="feedback.html">Geri Dönüşlər</a>
+        </div>
+    </nav>
+    <main>
+        <div class="filter">
+            <div class="vehicle-selector">
+                <div class="il">
+                    <label for="year">İl:</label>
+                    <select id="year" name="year">
+                    </select>
+                </div>
+                <div class="marka">
+                    <label for="make">Marka:</label>
+                    <select id="make" name="make">
+                    </select>
+                </div>
+                <div class="model">
+                    <label for="model">Model:</label>
+                    <select id="model" name="model">
+                    </select>
+                </div>
+                <button>Axtarış</button>
+    </main>
+    <section class="new-products">
+        <h2>Yeni Məhsullar</h2>
+        <p>Ən son əlavə olunan məhsulları kəşf edin!</p>
+        <div id="new_products" class="products-container"></div>
+    </section>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>AutoPart</h3>
+                <p>Azərbaycanda keyfiyyətli avtomobil ehtiyat hissələrinin satış platforması.</p>
+                <p><i class="fa-solid fa-location-dot"></i> Bakı, Nərimanov</p>
+                <p><i class="fa-solid fa-phone"></i> +994 70 873 17 84</p>
+                <p><i class="fa-solid fa-envelope"></i> info@autopart.az</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Menü</h4>
+                <a href="#">Əsas səhifə</a>
+                <a href="#">Məhsullar</a>
+                <a href="#">Haqqımızda</a>
+                <a href="#">Əlaqə</a>
+            </div>
+
+            <div class="footer-support">
+                <h4>Dəstək</h4>
+                <a href="#">Çatdırılma</a>
+                <a href="#">Qaytarma siyasəti</a>
+                <a href="#">FAQ</a>
+            </div>
+
+            <div class="footer-social">
+                <h4>Bizi izləyin</h4>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 AutoPart. Bütün hüquqlar qorunur.</p>
+        </div>
+        <!--bu dropdown olmaga calisir-->
+        <div id="mySidebar" class="sidebar">
+            <span class="closebtn" onclick="closeMenu()">&times;</span>
+            <a href="#">Mühərrik hissələri</a>
+            <a href="#">Təkərlər</a>
+            <a href="#">Yağlar</a>
+            <a href="#">Aksesuarlar</a>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

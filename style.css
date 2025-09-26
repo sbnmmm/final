@@ -1,0 +1,313 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.5;
+}
+.navbar {
+  padding: 15px 30px;
+}
+.header_1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap; 
+  gap: 15px;
+}
+.logo a {
+  color: black;
+  text-align: center;
+  font-size: 30px;
+  font-weight: lighter;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo img {
+  width: 120px;
+  height: auto;
+}
+.logo a{
+color: black;
+  font-size: 30px;
+  font-weight: bold;
+}
+.input {
+  display: flex;
+  align-items: center;
+}
+.input input {
+  height: 45px;
+  width: 300px;
+  max-width: 100%;
+  padding-left: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+}
+
+.input button {
+   height: 45px;
+  width: 45px;
+  border: none;
+  background: #de1f26;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+.input button:hover {
+  background: #b3161b;
+}
+.input i {
+  font-size: 16px;
+}
+.input input::placeholder {
+font-size:15px;
+}
+
+.contact {
+  display: flex;
+  gap: 15px;
+}
+
+.contact a {
+  color: black;
+  transition: color 0.3s;
+}
+.contact a:hover {
+  color: #de1f26;
+}
+.contact i {
+  font-size: 23px;
+}
+.contact .number{
+  font-size:17px;
+  font-weight: lighter;
+}
+
+.header_2 {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 5px;
+  padding: 15px 0;
+  flex-wrap: wrap;
+}
+.header_2 button, .header_2 a {
+  background-color: white;
+  border: none;
+  font-size: 17px;
+  padding: 8px 16px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: black;
+  transition: 0.3s;
+}
+.header_2 a:hover, .header_2 button:hover {
+  background: #de1f26;
+  color: #fff;
+}
+.filter {
+  background-image: url("bg-site.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 50px 20px;
+  text-align: center;
+
+}
+
+.vehicle-selector {
+  background-color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+}
+
+.il,.marka,.model {
+  width: 300px;
+}
+
+.vehicle-selector label {
+  color: #000;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.vehicle-selector button {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  color: white;
+  width: 150px;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  background-color: #de1f26;
+}
+
+.vehicle-selector select {
+  padding: 15px;
+  border: 1px solid #000000;
+  width: 200px;
+}
+
+.products-container {
+  display: flex;
+  justify-content: space-between;
+  gap:60px;
+  flex-wrap: wrap;
+}
+
+.new-products {
+  text-align: left;
+  padding: 30px;
+  line-height:40px;
+}
+.products-container{
+  padding-top:20px;
+}
+.product-card {
+  padding: 10px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  display: block;
+}
+
+.product-card h3 {
+  font-size: 16px;
+  margin: 10px 0 5px;
+}
+
+.product-card .price {
+  color: #e60000;
+  font-weight: bold;
+}
+
+.product-card button {
+  background: #e60000;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.product-card .description {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+footer {
+  background-color: #2b2b2b;
+  color: #ddd;
+  margin-top: 30px;
+  padding: 40px 20px 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-container h3,
+.footer-container h4 {
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.footer-about p,
+.footer-links a,
+.footer-support a {
+  margin-bottom: 8px;
+  display: block;
+  color: #ddd;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-links a:hover,
+.footer-support a:hover {
+  color: #de1f26;
+}
+
+.footer-social a {
+  margin-right: 10px;
+  font-size: 20px;
+  color: #ddd;
+  transition: color 0.3s;
+}
+
+.footer-social a:hover {
+  color: #de1f26;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #333;
+  margin-top: 30px;
+  padding-top: 15px;
+  font-size: 13px;
+  color: #aaa;
+}
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #2b2b2b;
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #fff;
+  display: block;
+  transition: 0.2s;
+}
+
+.sidebar a:hover {
+  background: #575757;
+}
+
+/* Bağlama düyməsi */
+.sidebar .closebtn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+}

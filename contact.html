@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Əlaqə Məlumatları</title>
+    <link rel="stylesheet" href="contact.css">
+
+</head>
+
+<div class="container">
+  <div class="card">
+    <div class="grid">
+      
+      <!-- Sol info -->
+      <div class="info">
+        <div class="brand">
+          <img src="Sarı Siyah Sade Modern Araç Kiralama Logo.png" alt="logo">
+          <div>
+            <div style="font-weight:700">Zapçast Mağaza</div>
+            <div class="small">Bakı, Azərbaycan</div>
+          </div>
+        </div>
+
+        <h2>Bizimlə əlaqə</h2>
+        <p class="lead">Ehtiyat hissələri ilə bağlı sorğularınızı bizə göndərin. Telefon, WhatsApp və ya form vasitəsilə əlaqə saxlayın.</p>
+
+        <div class="contact-list">
+          <div class="contact-item">
+            <div class="icon-wrap">📞</div>
+            <div>
+              <div class="meta"><a href="tel:+994501234567">+994 50 123 45 67</a></div>
+              <div class="small">Telefon / WhatsApp</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="icon-wrap">✉️</div>
+            <div>
+              <div class="meta">info@zapcast.az</div>
+              <div class="small">E-poçt</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="icon-wrap">📍</div>
+            <div>
+              <div class="meta">Nizami küç., Bakı</div>
+              <div class="small">Ünvan / Mağaza</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:18px">
+          <small class="small">İş saatları: Hər gün 09:00–18:00</small>
+        </div>
+
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.123456789!2d49.8400!3d40.3833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d123456789%3A0xabcdef!2sNizami%20K%C3%BC%C3%A7.,%20Baki!5e0!3m2!1sen!2saz!4v1690000000000" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <!-- Sağ form -->
+      <div class="form">
+        <form id="contactForm">
+          <div class="row">
+            <div class="col">
+              <label for="name">Adınız</label>
+              <input id="name" name="name" type="text" placeholder="Adınız" required>
+            </div>
+            <div class="col">
+              <label for="phone">Telefon / WhatsApp</label>
+              <input id="phone" name="phone" type="text" placeholder="050 XXX XX XX" required>
+            </div>
+          </div>
+
+          <label for="part">Ehtiyat hissəsi adı</label>
+          <input id="part" name="part" type="text" placeholder="Məsələn: Alternator" required>
+
+          <label for="message">Əlavə məlumat / sorğu</label>
+          <textarea id="message" name="message" placeholder="Mesajınızı yazın..."></textarea>
+
+          <div style="display:flex;gap:12px;align-items:center;justify-content:space-between">
+            <button type="submit" id="sendBtn">Göndər</button>
+            <div class="note">Biz ən çox 24 saatda cavab veririk.</div>
+          </div>
+
+          <div id="status" class="small" style="margin-top:8px;color:green;display:none">Mesaj göndərildi — təşəkkürlər!</div>
+        </form>
+      </div>
+
+    </div>
+
+    <div class="card-footer">
+      <div>© <span id="year"></span> Zapçast Mağaza</div>
+      <div class="small">Gizlilik siyasəti · Şərtlər</div>
+    </div>
+  </div>
+</div>
+
+<script src="contact.js"></script>
+</body>
+</html>
+
