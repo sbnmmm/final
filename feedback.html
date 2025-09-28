@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="feedback.css" rel="stylesheet">
+</head>
+<body>
+ <div class="login-section">
+  <button class="login-btn" onclick="openLoginForm()">Daxil olun</button>
+  <div id="loginForm" class="login-form">
+    <span class="close-btn" onclick="closeLoginForm()">&times;</span>
+    <h2>Daxil olun</h2>
+    <form id="login">
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Email" required>
+      <label for="password">Şifrə</label>
+      <input type="password" id="password" placeholder="Şifrə" required>
+      <button type="submit">Daxil ol</button>
+      <p>Hesabınız yoxdur? <a href="#">Qeydiyyatdan keçin</a></p>
+    </form>
+  </div>
+</div>
+   
+</body>
+</html>
+

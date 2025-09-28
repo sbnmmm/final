@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 const container = document.getElementById('new_products');
 
-fetch('new_products.json')
+fetch('products.json')
   .then(res => res.json())
   .then(data => {
     data.forEach(product => {
