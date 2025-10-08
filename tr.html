@@ -1,22 +1,150 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="az">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="try.css">
+    <title>Sifarişi Tamamla</title>
+    <link rel="stylesheet" href="shop.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        h1 { text-align: center; color: #de1f26; margin-bottom: 20px; }
+        .checkout-container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .checkout-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        .checkout-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display:block;
+            margin-bottom:5px;
+            font-weight: 500;
+        }
+        .form-group input {
+            width:100%;
+            padding:10px;
+            border:1px solid #ccc;
+            border-radius:5px;
+        }
+        .total-price {
+            text-align: right;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #de1f26;
+        }
+        button.complete-btn {
+            background: #de1f26;
+            color: white;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button.complete-btn:hover {
+            background: #b3161b;
+        }
+    </style>
 </head>
 <body>
-    <div class="navbar-user">
-  <span class="material-symbols-outlined">account_circle</span>
-  <div class="user-dropdown" id="userDropdown">
-    <p id="userEmail">Emailiniz burada</p>
-    <hr>
-    <div id="miniCart"></div>
-  </div>
-</div>
-<script src="tr.js"></script>
+    <h1>Sifarişi Tamamla</h1>
+    <div class="checkout-container" id="checkout-container">
+        <!-- Məhsullar JS ilə burda görsənəcək -->
+    </div>
+
+    <script>
+        // Cartı localStorage-dan götür
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        const container = document.getElementById('checkout-container');
+
+        if(cart.length === 0){
+            container.innerHTML = "<p>Səbət boşdur 🛒</p>";
+        } else {
+            let totalPrice = 0;
+            cart.forEach(item => {
+                totalPrice += item.price * item.quantity;
+                const div = document.createElement('div');
+                div.classList.add('checkout-item');
+                div.innerHTML = `
+                    <div>
+                        <img src="${item.image}" alt="${item.name}">
+                        <span>${item.name} x ${item.quantity}</span>
+                    </div>
+                    <div>${(item.price * item.quantity).toFixed(2)} AZN</div>
+                `;
+                container.appendChild(div);
+            });
+
+            const totalDiv = document.createElement('div');
+            totalDiv.classList.add('total-price');
+            totalDiv.textContent = `Cəmi: ${totalPrice.toFixed(2)} AZN`;
+            container.appendChild(totalDiv);
+
+            // Form sahələri
+            const formDiv = document.createElement('div');
+            formDiv.innerHTML = `
+                <div class="form-group">
+                    <label>Ad, Soyad</label>
+                    <input type="text" id="fullname" placeholder="Adınızı daxil edin">
+                </div>
+                <div class="form-group">
+                    <label>Telefon</label>
+                    <input type="tel" id="phone" placeholder="+994 XX XXX XX XX">
+                </div>
+                <div class="form-group">
+                    <label>Ünvan</label>
+                    <input type="text" id="address" placeholder="Çatdırılma ünvanı">
+                </div>
+                <div class="form-group">
+                    <label>Kart nömrəsi</label>
+                    <input type="text" id="card" placeholder="XXXX-XXXX-XXXX-XXXX">
+                </div>
+                <button class="complete-btn" id="complete-order">Sifarişi Tamamla</button>
+            `;
+            container.appendChild(formDiv);
+
+            document.getElementById('complete-order').addEventListener('click', () => {
+                const fullname = document.getElementById('fullname').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                const address = document.getElementById('address').value.trim();
+                const card = document.getElementById('card').value.trim();
+
+                if(!fullname || !phone || !address || !card){
+                    alert("Zəhmət olmasa bütün sahələri doldurun!");
+                    return;
+                }
+
+                alert("Sifarişiniz qeydə alındı ✅");
+                localStorage.removeItem("cart");
+                window.location.href = "home.html"; // Sifarişdən sonra əsas səhifəyə yönləndir
+            });
+        }
+    </script>
 </body>
 </html>
+
+
 

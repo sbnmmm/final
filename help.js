@@ -131,3 +131,22 @@ function addToCart() {
     cartBadge.innerText = cartCount;
   }
 }
+function updateCartCount() {
+  const cartBadge = document.getElementById("cart-count");
+  if (!cartBadge) return; // element yoxdursa çıx
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+  if (totalQuantity > 0) {
+    cartBadge.textContent = totalQuantity;
+    cartBadge.classList.remove("hidden");
+  } else {
+    cartBadge.classList.add("hidden");
+  }
+}
+
+// Page load zamanı hər səhifədə çağır
+document.addEventListener("DOMContentLoaded", () => {
+  updateCartCount();
+});

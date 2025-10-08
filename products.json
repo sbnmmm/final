@@ -3,138 +3,158 @@
     "id": 1,
     "name": "Stop işığı",
     "image": "images/stop_isigi.jpg",
-    "price": "60 AZN",
+    "category": "Faralar",
+    "price": 60,
     "description": "Kia Rio 2005-2011"
   },
   {
     "id": 2,
     "name": "Plafon",
     "image": "images/plafon.jpg",
-    "price": "150 AZN",
+    "category": "Güzgülər",
+    "price": 150,
     "description": "Kia Sportage Hyundai Tucson 2005-2010"
   },{
     "id": 3,
     "name": "Rulovoy",
     "image": "images/rulovoy_i30.jpg",
-    "price": "180 AZN",
+    "category":"Rulovoylar",
+    "price": 180,
     "description": "Hyundai i30"
   },{
     "id": 4,
     "name": "Fara sağ (Içi qara)",
     "image": "images/fara_qara.jpg",
-    "price": "45 AZN",
+    "category":"Faralar",
+    "price": 45,
     "description": "Kia Rio 2009-2011"
   },
    {
     "id": 5,
     "name": "İnvertor pompası",
     "image": "images/invertor_pompasi_20.jpg",
-    "price": "35 AZN",
+    "category":"İnvertor pompası",
+    "price": 35,
     "description": "Toyota Prius 20 kuza"
   },
    {
     "id": 6,
     "name": "İnvertor pompası",
+    "category":"İnvertor pompası",
     "image": "images/invertor_pompasi.jpg",
-    "price": "55 AZN",
+    "price": 55,
     "description": "Toyota Prius 30 kuza"
   },
     {
     "id": 7,
     "name": "Ön travers",
     "image": "images/on_traves_accent.jpg",
-    "price": "230 AZN",
+    "category":"Traverslər",
+    "price": 230,
     "description": "Hyundai Accent 2012-2017"
   },
      {
     "id": 8,
     "name": "Ön travers",
     "image": "images/on_traves_getz.jpg",
-    "price": "290 AZN",
+    "category":"Traverslər",
+    "price": 290,
     "description": "Hyundai Getz 2006-2012"
   },
   {
     "id": 9,
     "name": "Qabaq stupitsa",
+    "category":"Stupitsalar",
     "image": "images/stupitsa.jpg",
-    "price": "38 AZN",
+    "price": 38,
     "description": "Toyota Prius 20 kuza"
   },
   {
     "id": 10,
     "name": "Qabaq amortizator",
     "image": "images/qabaq_amortizator.jpg",
-    "price": "48 AZN",
+    "category":"Amortizatorlar",
+    "price": 48,
     "description": "Toyota Prius 30 kuza"
   },
   {
     "id": 11,
     "name": "Bufer barmaqlığı",
+    "category":"Buferlər",
     "image": "images/bufer_barmaqliq.jpg",
-    "price": "10 AZN",
+    "price": 10,
     "description": " Prius 20 kuza"
   },
   {
     "id": 12,
     "name": "Sükan Lenti",
+    "category":"Sükan lentləri",
     "image": "images/sukan_lenti.jpg",
-    "price": "30 AZN",
+    "price": 30,
     "description": "2004-2009 Toyota Prius"
   },
   {
     "id": 13,
     "name": "Termostat",
+    "category":"Termostatlar",
     "image": "images/termostat.jpg",
-    "price": "60 AZN",
+    "price": 60,
     "description": "Toyota Prius 20 kuza"
   },
   {
     "id": 14,
     "name": "Radiator pompası",
+    "category":"Radiatorlar",
     "image": "images/radiator.jpg",
-    "price": "130 AZN",
+    "price": 130,
     "description": "Lexus CT200h 2010-2014, Toyota Prius 2010-2014, Prius V"
   },
   {
     "id": 15,
     "name": "Nakoneçnik sol",
+    "category":"Nakonençiklər",
     "image": "images/nakonnencik.jpg",
-    "price": "8 AZN",
+    "price": 8,
     "description": "Toyota Prius 20 kuza"
   },
   {
     "id": 16,
     "name": "Dumanlı fara",
+    "category":"Faralar",
     "image": "images/dumanli_fara.jpg",
-    "price": "9 AZN",
+    "price": 9,
     "description": "Toyota Prius 30 kuza, Avalon 2007-2012, Camry 2007-2013, Corolla 2009-2015, Highlander 2008-2016, Rav4 2006-2012, Yaris 2006-201"
   },
   {
     "id": 17,
     "name": "Ön panel-ekran",
+    "category":"Panel ekranları",
     "image": "images/ekran.jpg",
-    "price": "210 AZN",
+    "price": 210,
     "description": "Kia Ceed 2007-2012"
   },
   {
     "id": 18,
     "name": "Sükan lenti",
+    "category":"Sükan lentləri",
     "image": "images/sukan_lenti-santafe.jpg",
-    "price": "30 AZN",
+    "price": 30,
     "description": "Hyundai Santa Fe 2005-2012"
   },
   {
     "id": 19,
     "name": "Povorotnik çubuğu",
+    "category":"Povorotnik çubuğu",
     "image": "images/povorotnik_cubugu.jpg",
-    "price": "30 AZN",
+    "price": 30,
     "description": "Hyundai: Accent 06-10, Getz 02-10, Matrix, Verna Kia: Rio 05-11, Picanto 04-11, Morning 04-07"
   },
   {
     "id": 20,
     "name": "Ventilyator - pər",
+    "category":"Ventilyatorlar",
     "image": "images/per_kia.jpg",
-    "price": "120 AZN",
+    "price": 120,
     "description": "Kia Rio 2005-2011 dizel"
   }
  

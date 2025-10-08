@@ -1,4 +1,5 @@
-const years = [2025, 2024, 2023, 2022, 2021]; // Məsələn, son 5 ili göstəririk
+// ----------- Car Filters -------------
+const years = [2025, 2024, 2023, 2022, 2021];
 const makes = ['Toyota', 'BMW', 'Mercedes', 'Audi'];
 const models = {
   'Toyota': ['Corolla', 'Camry', 'RAV4'],
@@ -8,7 +9,7 @@ const models = {
 };
 
 function populateSelect(selectElement, options) {
-  selectElement.innerHTML = ''; // Mövcud seçimləri təmizləyirik
+  selectElement.innerHTML = '';
   options.forEach(option => {
     const opt = document.createElement('option');
     opt.value = option;
@@ -17,104 +18,122 @@ function populateSelect(selectElement, options) {
   });
 }
 
+// ----------- Cart Functions -------------
+function getCart() {
+  return JSON.parse(localStorage.getItem("cart")) || [];
+}
+
+function saveCart(cart) {
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function addToCart(product) {
+  let cart = getCart();
+  const existing = cart.find(item => item.id === product.id);
+  if(existing) existing.quantity++;
+  else {
+    product.quantity = 1;
+    cart.push(product);
+  }
+  saveCart(cart);
+  alert(`${product.name} səbətə əlavə olundu!`);
+  updateCartCount();
+}
+
+function updateCartCount() {
+  const cart = getCart();
+  const cartCount = document.getElementById('cart-count');
+  if(!cartCount) return;
+
+  const total = cart.reduce((acc, item) => acc + item.quantity, 0);
+  cartCount.textContent = total;
+  cartCount.classList.toggle('hidden', total === 0);
+}
+
+// ----------- Sidebar Menu -------------
+function openMenu() {
+  document.getElementById("mySidebar").style.width = "250px";
+}
+
+function closeMenu() {
+  document.getElementById("mySidebar").style.width = "0";
+}
+
+// ----------- Load Products & Sidebar Filter -------------
+let allProducts = [];
+
 document.addEventListener('DOMContentLoaded', () => {
   const yearSelect = document.getElementById('year');
   const makeSelect = document.getElementById('make');
   const modelSelect = document.getElementById('model');
 
-  populateSelect(yearSelect, years);
-  populateSelect(makeSelect, makes);
+  // Car filters
+  if(yearSelect && makeSelect && modelSelect){
+    populateSelect(yearSelect, years);
+    populateSelect(makeSelect, makes);
 
-  makeSelect.addEventListener('change', () => {
-    const selectedMake = makeSelect.value;
-    const availableModels = models[selectedMake] || [];
-    populateSelect(modelSelect, availableModels);
-  });
-});
-const container = document.getElementById('new_products');
+    makeSelect.addEventListener('change', () => {
+      const selectedMake = makeSelect.value;
+      const availableModels = models[selectedMake] || [];
+      populateSelect(modelSelect, availableModels);
+    });
+  }
 
-fetch('products.json')
-  .then(res => res.json())
-  .then(data => {
-    data.forEach(product => {
+  // Display logged in user
+  const userData = JSON.parse(localStorage.getItem("loggedInUser"));
+  const userDisplay = document.getElementById("userDisplay");
+  if (userData && userDisplay) {
+    userDisplay.textContent = `Salam, ${userData.firstName}`;
+  }
+
+  // Update cart count
+  updateCartCount();
+
+  // Load products
+  const container = document.getElementById('new_products');
+  if(!container) return;
+
+  fetch('products.json')
+    .then(res => res.json())
+    .then(data => {
+      allProducts = data;
+      renderProducts(allProducts);
+
+      // Sidebar event-lərini qururuq
+      const sidebarLinks = document.querySelectorAll('.sidebar a');
+      sidebarLinks.forEach(link => {
+        link.addEventListener('click', e => {
+          e.preventDefault();
+          const categoryText = link.textContent.trim().toLowerCase();
+
+          // Filter products by category
+          const filtered = allProducts.filter(p => p.category && p.category.toLowerCase() === categoryText);
+
+          renderProducts(filtered);
+        });
+      });
+    })
+    .catch(err => console.error('Məhsullar alınmadı:', err));
+
+  // Render Products function
+  function renderProducts(products) {
+    container.innerHTML = '';
+    products.forEach(product => {
       const card = document.createElement('div');
       card.classList.add('product-card');
-
       card.innerHTML = `
         <img src="${product.image}" alt="${product.name}">
         <h3>${product.name}</h3>
-        <p class="price">${product.price}</p>
+        <p class="price">${product.price} AZN</p>
         <p class="description">${product.description}</p>
-        <button onclick="addToCart()">Səbətə əlavə et</button>
-      `;
-
+        <button class="add-to-cart">Səbətə əlavə et</button>`;
       container.appendChild(card);
+
+      
+      card.querySelector('.add-to-cart').addEventListener('click', () => addToCart(product));
     });
-  })
-  .catch(err => console.error('Məhsullar alınmadı:', err));
-
- function openMenu() {
-      document.getElementById("mySidebar").style.width = "250px";
-    }
-
-    function closeMenu() {
-      document.getElementById("mySidebar").style.width = "0";
-    }
-let cartCount = 0;
-
-function addToCart() {
-  cartCount++;
-  const cartBadge = document.getElementById("cart-count");
-  if (cartCount > 0) {
-    cartBadge.classList.remove("hidden");
-    cartBadge.innerText = cartCount;
   }
-}
- // cart.js
-
-// Səbəti localStorage-dan götür, yoxdursa boş array
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-// Məhsul əlavə etmək funksiyası
-function addToCart(product) {
-    // Əgər məhsul artıq varsa, sayını artır
-    let existing = cart.find(item => item.id === product.id);
-    if (existing) {
-        existing.quantity += product.quantity || 1;
-    } else {
-        product.quantity = product.quantity || 1;
-        cart.push(product);
-    }
-
-    localStorage.setItem("cart", JSON.stringify(cart));
-    console.log("Səbət:", cart);
-    showCart(); // səhifədə göstərin
-}
-
-// Məhsulları ekranda göstərmək funksiyası
-function showCart() {
-    let cartContainer = document.getElementById("cart-container");
-    if (!cartContainer) return;
-
-    cartContainer.innerHTML = ""; // əvvəlki məhsulları təmizlə
-    cart.forEach(item => {
-        let div = document.createElement("div");
-        div.innerHTML = `
-            ${item.name} - ${item.price} AZN x ${item.quantity}
-            <button onclick="removeFromCart(${item.id})">Sil</button>
-        `;
-        cartContainer.appendChild(div);
-    });
-}
-
-// Məhsulu səbətdən silmək
-function removeFromCart(id) {
-    cart = cart.filter(item => item.id !== id);
-    localStorage.setItem("cart", JSON.stringify(cart));
-    showCart();
-}
-
-// Səhifə açılanda səbəti göstər
-window.addEventListener("DOMContentLoaded", () => {
-    showCart();
 });
+
+
+
