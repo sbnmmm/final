@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dəstək xidməti</title>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="help.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="logo.png">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+<body>
+  <nav class="navbar">
+        <div class="header_1">
+            <div class="logo">
+                <a href="index.html"><img src="logo.png" alt="logo for car parts"></a>
+                <a href="index.html">Auto Part</a>
+            </div>
+            <div class="input">
+                <input type="search" placeholder="Axtarış..">
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+
+            <div class="contact">
+                <div class="cart">
+                    <a href="shop"><span class="material-symbols-outlined">shopping_basket</span></a>
+                    <span id="cart-count" class="cart-count hidden">0</span>
+                </div>
+                <a href="tel:+994708731784"><span class="material-symbols-outlined">phone</span></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+        </div>
+        <div class="header_2">
+            <button class="menu-btn" onclick="openMenu()">☰ Məhsullar</button>
+            <a href="home.html">Əsas səhifə</a>
+            <a href="about.html">Haqqımızda</a>
+            <a href="contact.html">Əlaqə</a>
+            <a href="help.html">Dəstək</a>
+        </div>
+    </nav>
+    <section class="hero">
+                <div class="overlay">
+                    <div class="hero-content">
+                        <h1>Avtomobiliniz üçün ehtiyat hissələri</h1>
+                        <p>Tez, münasib və keyfiyyətli!<br>Sizin üçün ən yaxşı seçim,hər ehtiyacınıza uyğun hissələr
+                            burada tapa bilərsiniz.<br>Sadə, sürətli və etibarlı seçimlər sizi gözləyir.<br>Kəşf edin,
+                            seçin və həyatınızı asanlaşdırın.</p>
+                    </div>
+                </div>
+            </section>
+    <div class="container">
+        <h1>Müştəri Dəstəyi</h1>
+        <p class="subtitle">Tez-tez verilən sualların cavablarını tapın və siyasətlərimiz haqqında məlumat əldə edin</p>
+
+        <!-- Tab Navigation -->
+        <div class="tabs">
+            <button class="tab-button active" data-tab="faq">FAQ</button>
+            <button class="tab-button" data-tab="delivery">Çatdırılma</button>
+            <button class="tab-button" data-tab="returns">Qaytarma siyasəti</button>
+        </div>
+
+        <!-- FAQ Section -->
+        <div id="faq" class="section active">
+            <h2>Tez-tez verilən suallar</h2>
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Hansı markaların ehtiyat hissələrini satırsınız?</span>
+                    <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Biz Toyota, BMW, Mercedes, Audi, Hyundai, Kia və digər məşhur markaların ehtiyat hissələrini təklif edirik.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Məhsullarınız orijinaldır, yoxsa alternativ də var?</span>
+                    <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Həm orijinal, həm də keyfiyyətli alternativ (aftermarket) məhsullarımız mövcuddur. Müştəri istəyə görə seçim edə bilər.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Avtomobilimə uyğun ehtiyat hissəsini necə tapa bilərəm?</span>
+                    <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Siz bizə avtomobilin markası, modeli, istehsal ili və VIN kodunu versəniz, uyğun hissəni tapmağınıza kömək edirik.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Kataloqda olmayan hissələri sifariş edə bilərsinizmi?</span>
+                    <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Bəli, kataloqda olmayan bəzi hissələri xüsusi sifarişlə gətirə bilirik.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Çatdırılma neçə gün çəkir?</span>
+                    <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Bakı daxilində çatdırılma adətən 1 iş günü, bölgələrə isə 2–5 iş günü ərzində həyata keçirilir.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Delivery Policy Section -->
+        <div id="delivery" class="section">
+            <h2>Çatdırılma</h2>
+            <div class="policy-card">
+                <h3>Çatdırılma Seçimləri</h3>
+                <div class="shipping-option">
+                    <span class="icon check-icon">✓</span>
+                    <div>
+                        <h4>🏢 Ofisdən götürmə:</h4>
+                        <p>Ofis bazar ertəsindən cümə gününə qədər fəaliyyət göstərir. Müştəri məhsulu 09:00–18:00 saatları arasında ofisdən götürə bilər. </p>
+                    </div>
+                </div>
+                <div class="shipping-option">
+                    <span class="icon check-icon">✓</span>
+                    <div>
+                        <h4>🚚 Kuryer xidməti:</h4>
+                        <p>Sifarişiniz birbaşa evinizə və ya iş yerinizə çatdırılır. Çatdırılma üçün əlavə 7–9 AZN ödənilir (Bakı üçün, bölgələrdə dəyişə bilər)</p>
+                    </div>
+                </div>
+                <div class="shipping-option">
+                    <span class="icon check-icon">✓</span>
+                    <div>
+                        <h4>✉️ Poçt xidməti:</h4>
+                        <p>Rayon və digər şəhərlərə çatdırılma poçt vasitəsilə həyata keçirilir. Ödəniş 3–10 AZN arasıdır.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="policy-card">
+                <h3>Sifarişin Emalı və Çatdırılma Məlumatı</h3>
+                <ul>
+                    <li>Sifarişiniz 1–2 iş günü ərzində emal olunur.</li>
+                    <li>Daha sürətli çatdırılma üçün məhsullarımız bir neçə anbardan göndərilir.</li>
+                    <li>Sifariş göndərildikdə, izləmə məlumatı sizə e-mail ilə göndərilir.</li>
+                    <li>Bayram günləri, hava şəraiti və ya kuryer problemləri səbəbindən çatdırılmada gecikmələr ola bilər.</li>
+                    <li>Çatdırılma xərcləri sifarişin çəkisi və yerləşdiyiniz yerə görə hesablanır.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Return Policy Section -->
+        <div id="returns" class="section">
+            <h2>Qaytarma Siyasəti</h2>
+            <div class="policy-card">
+                <h3>Qaytarma Müddəti</h3>
+                <p>Əksər məhsullar üçün 30 günlük qaytarma siyasəti təklif edirik. Əgər tam məmnun deyilsinizsə, uyğun məhsulları tam geri ödəniş və ya dəyişdirmə üçün qaytara bilərsiniz.</p>
+            </div>
+            <div class="policy-card">
+                <h3>Uyğun Məhsullar</h3>
+                <ul>
+                    <li>Məhsul istifadə olunmamış və orijinal qablaşdırmada olmalıdır.</li>
+                    <li>Elektron və mexaniki ehtiyat hissələri orijinal vəziyyətdə və bütün aksessuarları ilə birlikdə olmalıdır.</li>
+                    <li>Zədələnmiş, quraşdırılmış və ya fərdiləşdirilmiş hissələr qaytarıla bilməz.</li>
+                   
+                </ul>
+            </div>
+            <div class="policy-card">
+                <h3>Qaytarma Prosesi</h3>
+                <ol>
+                    <li>Qaytarmaq üçün bizimlə e-mail (info@forsaj.az) və ya saytın əlaqə forması vasitəsilə əlaqə saxlayın.</li>
+                    <li>Biz sizə qaytarma icazəsi təqdim edəcəyik və lazım gələrsə, çatdırılma etiketi ilə bağlı təlimat verəcəyik</li>
+                    <li>Məhsulu təhlükəsiz şəkildə qablaşdırıb, icazə aldıqdan sonra 7 gün ərzində göndərin.</li>
+                    <li>Qaytarılan məhsul alındıqdan sonra ödəmə 5–7 iş günü ərzində geri qaytarılır.</li>
+                </ol>
+            </div>
+            <div class="policy-card">
+                <h3>İstisnalar və Ödənişlər:</h3>
+                <ul>
+                    <li>Defektli məhsullar üçün qaytarma göndərişi pulsuzdur; digər hallarda əlavə ödəniş ola bilər.</li>
+                    <li>Son satış məhsulları (məsələn, endirimdəki məhsullar) qaytarılmır.</li>
+                    <li>Beynəlxalq qaytarmalarda çatdırılma xərclərini müştəri ödəyə bilər.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+<footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>AutoPart</h3>
+                <p>Azərbaycanda keyfiyyətli avtomobil ehtiyat hissələrinin satış platforması.</p>
+                <p><i class="fa-solid fa-location-dot"></i> Bakı, Nərimanov</p>
+                <p><i class="fa-solid fa-phone"></i> +994 70 873 17 84</p>
+                <p><i class="fa-solid fa-envelope"></i> info@autopart.az</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Menü</h4>
+                <a href="#">Əsas səhifə</a>
+                <a href="#">Məhsullar</a>
+                <a href="#">Haqqımızda</a>
+                <a href="#">Əlaqə</a>
+            </div>
+
+            <div class="footer-support">
+                <h4>Dəstək</h4>
+                <a href="#">Çatdırılma</a>
+                <a href="#">Qaytarma siyasəti</a>
+                <a href="#">FAQ</a>
+            </div>
+
+            <div class="footer-social">
+                <h4>Bizi izləyin</h4>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 AutoPart. Bütün hüquqlar qorunur.</p>
+        </div>
+        <div id="mySidebar" class="sidebar">
+            <span class="closebtn" onclick="closeMenu()">&times;</span>
+            <a href="#">Sükan lentləri</a>
+            <a href="#">Rulovoylar</a>
+            <a href="#">Güzgülər</a>
+            <a href="#">Amortizatorlar</a>
+            <a href="#">Ventilyatorlar</a>
+            <a href="#">Faralar</a>
+            <a href="#">Su radiatorları</a>
+            <a href="#">Povorotnik çubuğu</a>
+        </div>
+    </footer>
+    <script src="help.js"></script>
+</body>
+</html>

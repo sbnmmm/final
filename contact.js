@@ -20,14 +20,7 @@ function submitForm(event) {
     event.target.reset(); // Formu sıfırla
   }, 900);
 
-  return false; // Formun yenidən göndərilməsinin qarşısını al
+  return false; 
 }
-function openMenu() {
-      document.getElementById("mySidebar").style.width = "250px";
-    }
-
-    function closeMenu() {
-      document.getElementById("mySidebar").style.width = "0";
-    }
 
 

@@ -52,14 +52,6 @@ fetch('new_products.json')
     });
   })
   .catch(err => console.error('Məhsullar alınmadı:', err));
-
- function openMenu() {
-      document.getElementById("mySidebar").style.width = "250px";
-    }
-
-    function closeMenu() {
-      document.getElementById("mySidebar").style.width = "0";
-    }
 let cartCount = 0;
 
 function addToCart() {
@@ -68,16 +60,6 @@ function addToCart() {
   if (cartCount > 0) {
     cartBadge.classList.remove("hidden");
     cartBadge.innerText = cartCount;
-  }}
- 
-
-  document.addEventListener("DOMContentLoaded", () => {
-  const userData = JSON.parse(localStorage.getItem("loggedInUser"));
-  const userDisplay = document.getElementById("userDisplay");
-
-  if (userData && userDisplay) {
-    userDisplay.textContent = `Salam, ${userData.firstName}`;
   }
-});
-
+}
 

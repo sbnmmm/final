@@ -1,0 +1,16 @@
+* { box-sizing: border-box; margin:0; padding:0; font-family: 'Montserrat', sans-serif; }
+body { background:#fff; color:#222; }
+.navbar { display:flex; align-items:center; gap:20px; padding:16px 24px; background:#e53935; color:#fff; }
+.container { max-width:1000px; margin:28px auto; padding:0 16px; }
+.order-card { border:1px solid #f0a3a3; border-radius:8px; padding:14px; margin-bottom:16px; background:#fff8f8; box-shadow:0 2px 6px rgba(0,0,0,0.05); }
+.order-meta { display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; }
+.order-id { font-weight:700; color:#c62828; }
+.order-date { font-size:0.9rem; color:#555; }
+.order-items { margin-top:8px; }
+.order-item { display:flex; gap:12px; align-items:center; padding:8px 0; border-top:1px dashed #f2dede; }
+.order-item:first-child { border-top:none; }
+.order-item img { width:56px; height:56px; object-fit:cover; border-radius:6px; border:1px solid #eee; }
+.item-title { font-weight:600; color:#333; }
+.item-meta { color:#666; font-size:0.9rem; margin-left:auto; text-align:right; }
+.order-total { margin-top:12px; font-weight:800; color:#b71c1c; font-size:1.05rem; text-align:right; }
+.empty { text-align:center; padding:40px 0; color:#666; }

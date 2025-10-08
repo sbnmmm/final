@@ -15,7 +15,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </head>
 
@@ -23,35 +25,47 @@
     <nav class="navbar">
         <div class="header_1">
             <div class="logo">
-                <a href="index.html"><img src="logo.png"
-                        alt="logo for car parts"></a>
+                <a href="index.html"><img src="logo.png" alt="logo for car parts"></a>
                 <a href="index.html">Auto Part</a>
             </div>
             <div class="input">
                 <input type="search" placeholder="Axtarış..">
                 <button><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
-
             <div class="contact">
                 <div class="cart">
-                    <a href="shop"><span class="material-symbols-outlined">shopping_basket</span></a>
+                    <a href="shop.html"><span class="material-symbols-outlined">shopping_basket</span></a>
                     <span id="cart-count" class="cart-count hidden">0</span>
+                </div>
+                <div class="user-icon">
+                    <span class="material-symbols-outlined">account_circle</span>
+                    <div class="user-tooltip" id="userTooltip"></div>
                 </div>
                 <a href="tel:+994708731784"><span class="material-symbols-outlined">phone</span></a>
                 <a href="#"><i class="fa-brands fa-instagram"></i></a>
             </div>
-        </div>
         </div>
         <div class="header_2">
             <button class="menu-btn" onclick="openMenu()">☰ Məhsullar</button>
             <a href="home.html">Əsas səhifə</a>
             <a href="about.html">Haqqımızda</a>
             <a href="contact.html">Əlaqə</a>
-            <a href="feedback.html">Geri Dönüşlər</a>
+            <a href="help.html">Dəstək</a>
         </div>
     </nav>
     <main>
+
         <div class="filter">
+            <section class="hero">
+                <div class="overlay">
+                    <div class="hero-content">
+                        <h1>Avtomobiliniz üçün ehtiyat hissələri</h1>
+                        <p>Tez, münasib və keyfiyyətli!<br>Sizin üçün ən yaxşı seçim,hər ehtiyacınıza uyğun hissələr
+                            burada tapa bilərsiniz.<br>Sadə, sürətli və etibarlı seçimlər sizi gözləyir.<br>Kəşf edin,
+                            seçin və həyatınızı asanlaşdırın.</p>
+                    </div>
+                </div>
+            </section>
             <div class="vehicle-selector">
                 <div class="il">
                     <label for="year">İl:</label>
@@ -69,7 +83,10 @@
                     </select>
                 </div>
                 <button>Axtarış</button>
+
     </main>
+
+
     <section class="new-products">
         <h2>Yeni Məhsullar</h2>
         <p>Ən son əlavə olunan məhsulları kəşf edin!</p>
@@ -112,10 +129,14 @@
         </div>
         <div id="mySidebar" class="sidebar">
             <span class="closebtn" onclick="closeMenu()">&times;</span>
-            <a href="#">Mühərrik hissələri</a>
-            <a href="#">Təkərlər</a>
-            <a href="#">Yağlar</a>
-            <a href="#">Aksesuarlar</a>
+            <a href="#">Sükan lentləri</a>
+            <a href="#">Rulovoylar</a>
+            <a href="#">Güzgülər</a>
+            <a href="#">Amortizatorlar</a>
+            <a href="#">Ventilyatorlar</a>
+            <a href="#">Faralar</a>
+            <a href="#">Su radiatorları</a>
+            <a href="#">Povorotnik çubuğu</a>
         </div>
     </footer>
     <script src="script.js"></script>

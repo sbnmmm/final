@@ -70,3 +70,51 @@ function addToCart() {
     cartBadge.innerText = cartCount;
   }
 }
+ // cart.js
+
+// Səbəti localStorage-dan götür, yoxdursa boş array
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+// Məhsul əlavə etmək funksiyası
+function addToCart(product) {
+    // Əgər məhsul artıq varsa, sayını artır
+    let existing = cart.find(item => item.id === product.id);
+    if (existing) {
+        existing.quantity += product.quantity || 1;
+    } else {
+        product.quantity = product.quantity || 1;
+        cart.push(product);
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    console.log("Səbət:", cart);
+    showCart(); // səhifədə göstərin
+}
+
+// Məhsulları ekranda göstərmək funksiyası
+function showCart() {
+    let cartContainer = document.getElementById("cart-container");
+    if (!cartContainer) return;
+
+    cartContainer.innerHTML = ""; // əvvəlki məhsulları təmizlə
+    cart.forEach(item => {
+        let div = document.createElement("div");
+        div.innerHTML = `
+            ${item.name} - ${item.price} AZN x ${item.quantity}
+            <button onclick="removeFromCart(${item.id})">Sil</button>
+        `;
+        cartContainer.appendChild(div);
+    });
+}
+
+// Məhsulu səbətdən silmək
+function removeFromCart(id) {
+    cart = cart.filter(item => item.id !== id);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    showCart();
+}
+
+// Səhifə açılanda səbəti göstər
+window.addEventListener("DOMContentLoaded", () => {
+    showCart();
+});
