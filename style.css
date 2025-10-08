@@ -386,33 +386,5 @@ footer {
   gap: 10px;
 }
 
-.user-icon {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-}
 
-.user-tooltip {
-  visibility: hidden;
-  width: max-content;
-  background-color: #fff; /* Ağ fon */
-  color: #c00; /* Qırmızı mətn */
-  text-align: center;
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: 1px solid #c00;
-  position: absolute;
-  top: 125%; /* icon-un altı */
-  left: 50%;
-  transform: translateX(-50%);
-  white-space: nowrap;
-  z-index: 10;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  font-weight: 500;
-  font-size: 14px;
-}
-
-.user-icon:hover .user-tooltip {
-  visibility: visible;
-}
 
