@@ -1,10 +1,10 @@
 // ----------- Car Filters -------------
-const years = [2025, 2024, 2023, 2022, 2021];
-const makes = ['Toyota', 'BMW', 'Mercedes', 'Audi'];
+const years = [2004, 2005, 2006,2007, 2009,2010,2011, 2012,2014,2017];
+const makes = ['Toyota', 'Kia', 'Hyundai', 'Audi'];
 const models = {
-  'Toyota': ['Corolla', 'Camry', 'RAV4'],
-  'BMW': ['3 Series', '5 Series', 'X5'],
-  'Mercedes': ['C-Class', 'E-Class', 'GLE'],
+   'Toyota': ['Prius', 'C7R', 'Yaris','20 Kuza','30 Kuza'],
+  'Kia': ['Rio', 'Sportage', 'Ceed'],
+  'Hyundai': ['Tucson', 'Accent', 'i30','Getz','Santa Fe'],
   'Audi': ['A4', 'Q5', 'A6']
 };
 
@@ -102,8 +102,40 @@ function loadProducts() {
     .then(res => res.json())
     .then(products => {
       allProducts = products;
-      renderProducts(allProducts); // İlk açılışda hamısı görünsün
+      renderProducts(allProducts); 
 
+     // ----------- Search Filter -------------
+const searchBtn = document.getElementById('searchBtn');
+if (searchBtn) {
+  searchBtn.addEventListener('click', () => {
+    const year = document.getElementById('year')?.value;
+    const make = document.getElementById('make')?.value;
+    const model = document.getElementById('model')?.value;
+
+    const filtered = allProducts.filter(p => {
+      // Year uyğunluğu (string və number fərqini də həll edirik)
+      const matchYear = !year || !p.year || (Array.isArray(p.year) ? p.year.includes(Number(year)) : p.year == year);
+
+
+      // Make uyğunluğu (array və string üçün)
+      let matchMake = false;
+      if (!make) matchMake = true;
+      else if (Array.isArray(p.make)) matchMake = p.make.map(m => m.toLowerCase()).includes(make.toLowerCase());
+      else matchMake = p.make.toLowerCase() === make.toLowerCase();
+
+      // Model uyğunluğu (array və string üçün)
+      const matchModel = !model || (p.model && (
+        Array.isArray(p.model) ? p.model.map(m => m.toLowerCase()).includes(model.toLowerCase()) : p.model.toLowerCase() === model.toLowerCase()
+      ));
+
+      return matchYear && matchMake && matchModel;
+    });
+
+    renderProducts(filtered.length ? filtered : []);
+  });
+  }
+
+        
       // Sidebar klikləri
       const sidebarLinks = document.querySelectorAll('.sidebar a');
       sidebarLinks.forEach(link => {

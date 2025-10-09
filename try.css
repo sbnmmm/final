@@ -1,38 +1,38 @@
-.navbar-user {
-  position: relative;
-  display: inline-block;
+/* CSS */
+.confirmation-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.confirmation-box {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.confirmation-box h2 {
+  margin-bottom: 15px;
+}
+
+.confirmation-box button {
+  padding: 10px 20px;
+  border: none;
+  background: #007bff;
+  color: white;
+  border-radius: 5px;
   cursor: pointer;
 }
 
-.user-dropdown {
-  visibility: hidden;
-  opacity: 0;
-  width: 250px;
-  background-color: #fff;
-  color: #c00;
-  border: 1px solid #c00;
-  border-radius: 8px;
-  padding: 10px;
-  position: absolute;
-  top: 125%;
-  right: 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  transition: opacity 0.3s;
-  z-index: 10;
-}
-
-.navbar-user:hover .user-dropdown {
-  visibility: visible;
-  opacity: 1;
-}
-
-#miniCart .cart-item {
-  display: flex;
-  align-items: center;
-  margin: 5px 0;
-}
-
-#miniCart .cart-item img {
-  width: 40px;
-  margin-right: 10px;
+.hidden {
+  display: none;
 }

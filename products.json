@@ -5,7 +5,11 @@
     "image": "images/stop_isigi.jpg",
     "category": "Faralar",
     "price": 60,
-    "description": "Kia Rio 2005-2011"
+    "description": "Kia Rio 2005-2011",
+    "year": [2005,2006,2007,2008,2009,2010,2011],
+    "make": ["Kia"],
+    "model": ["Rio"]
+  
   },
   {
     "id": 2,
@@ -13,21 +17,32 @@
     "image": "images/plafon.jpg",
     "category": "Güzgülər",
     "price": 150,
-    "description": "Kia Sportage Hyundai Tucson 2005-2010"
-  },{
+    "description": "Kia Sportage, Hyundai Tucson 2005-2010",
+    "year": [2005,2006,2007,2008,2009,2010],
+    "make": ["Kia","Hyundai"],
+    "model": ["Sportage","Tucson"]
+  },
+  {
     "id": 3,
     "name": "Rulovoy",
     "image": "images/rulovoy_i30.jpg",
     "category":"Rulovoylar",
     "price": 180,
-    "description": "Hyundai i30"
-  },{
+    "description": "Hyundai i30",
+    "make": ["Hyundai"],
+    "model": ["i30"]
+    
+  },
+  {
     "id": 4,
     "name": "Fara sağ (Içi qara)",
     "image": "images/fara_qara.jpg",
     "category":"Faralar",
     "price": 45,
-    "description": "Kia Rio 2009-2011"
+    "description": "Kia Rio 2009-2011",
+    "year": [2009,2010,2011],
+    "make": ["Kia"],
+    "model": ["Rio"]
   },
    {
     "id": 5,
@@ -35,7 +50,9 @@
     "image": "images/invertor_pompasi_20.jpg",
     "category":"İnvertor pompası",
     "price": 35,
-    "description": "Toyota Prius 20 kuza"
+    "description": "Toyota Prius 20 kuza",
+    "make": ["Toyota"],
+    "model": ["Prius","20 Kuza"]
   },
    {
     "id": 6,
@@ -43,7 +60,9 @@
     "category":"İnvertor pompası",
     "image": "images/invertor_pompasi.jpg",
     "price": 55,
-    "description": "Toyota Prius 30 kuza"
+    "description": "Toyota Prius 30 kuza",
+    "make": ["Kia"],
+    "model": ["Prius","30 Kuza"]
   },
     {
     "id": 7,
@@ -51,7 +70,10 @@
     "image": "images/on_traves_accent.jpg",
     "category":"Traverslər",
     "price": 230,
-    "description": "Hyundai Accent 2012-2017"
+    "description": "Hyundai Accent 2012-2017",
+    "year": [2012,2013,2014,2015,2016,2017],
+    "make": ["Hyundai"],
+    "model": ["Accent"]
   },
      {
     "id": 8,
@@ -59,7 +81,10 @@
     "image": "images/on_traves_getz.jpg",
     "category":"Traverslər",
     "price": 290,
-    "description": "Hyundai Getz 2006-2012"
+    "description": "Hyundai Getz 2006-2012",
+   "year": [2006,2007,2008,2009,2010,2011,2012],
+    "make": ["Hyundai"],
+    "model": ["Getz"]
   },
   {
     "id": 9,
@@ -67,7 +92,9 @@
     "category":"Stupitsalar",
     "image": "images/stupitsa.jpg",
     "price": 38,
-    "description": "Toyota Prius 20 kuza"
+    "description": "Toyota Prius 20 kuza",
+    "make": ["Toyota"],
+    "model": ["Prius","20 Kuza"]
   },
   {
     "id": 10,
@@ -75,7 +102,9 @@
     "image": "images/qabaq_amortizator.jpg",
     "category":"Amortizatorlar",
     "price": 48,
-    "description": "Toyota Prius 30 kuza"
+    "description": "Toyota Prius 30 kuza",
+    "make": ["Toyota"],
+    "model": ["Prius","30 Kuza"]
   },
   {
     "id": 11,
@@ -83,7 +112,9 @@
     "category":"Buferlər",
     "image": "images/bufer_barmaqliq.jpg",
     "price": 10,
-    "description": " Prius 20 kuza"
+    "description": "Prius 20 kuza",
+    "make": ["Toyota"],
+    "model": ["Prius","20 Kuza"]
   },
   {
     "id": 12,
@@ -91,7 +122,10 @@
     "category":"Sükan lentləri",
     "image": "images/sukan_lenti.jpg",
     "price": 30,
-    "description": "2004-2009 Toyota Prius"
+    "description": "2004-2009 Toyota Prius",
+    "year": [2004,2005,2006,2007,2008,2009],
+    "make": ["Toyota"],
+    "model": ["Prius"]
   },
   {
     "id": 13,
@@ -99,7 +133,9 @@
     "category":"Termostatlar",
     "image": "images/termostat.jpg",
     "price": 60,
-    "description": "Toyota Prius 20 kuza"
+    "description": "Toyota Prius 20 kuza",
+    "make": ["Toyota"],
+    "model": ["Prius","20 Kuza"]
   },
   {
     "id": 14,
@@ -107,7 +143,10 @@
     "category":"Radiatorlar",
     "image": "images/radiator.jpg",
     "price": 130,
-    "description": "Lexus CT200h 2010-2014, Toyota Prius 2010-2014, Prius V"
+    "description": "Lexus CT200h 2010-2014, Toyota Prius 2010-2014, Prius V",
+    "year": [2010,2011,2012,2013,2014],
+    "make": ["Toyota","Lexus"],
+    "model": ["Prius","CT200h"]
   },
   {
     "id": 15,
@@ -115,7 +154,9 @@
     "category":"Nakonençiklər",
     "image": "images/nakonnencik.jpg",
     "price": 8,
-    "description": "Toyota Prius 20 kuza"
+    "description": "Toyota Prius 20 kuza",
+    "make": ["Toyota"],
+    "model": ["Prius","20 Kuza"]
   },
   {
     "id": 16,
@@ -123,7 +164,10 @@
     "category":"Faralar",
     "image": "images/dumanli_fara.jpg",
     "price": 9,
-    "description": "Toyota Prius 30 kuza, Avalon 2007-2012, Camry 2007-2013, Corolla 2009-2015, Highlander 2008-2016, Rav4 2006-2012, Yaris 2006-201"
+    "description": "Toyota Prius 30 kuza, Avalon 2007-2012, Camry 2007-2013, Corolla 2009-2015, Highlander 2008-2016, Rav4 2006-2012, Yaris 2006-2010",
+    "year": [2006,2007,2008,2009,2010,2011,2012,2013,2014,2015],
+    "make": ["Toyota"],
+    "model": ["Prius","Corolla","Avalon","Camry","Yaris","30 Kuza"]
   },
   {
     "id": 17,
@@ -131,7 +175,10 @@
     "category":"Panel ekranları",
     "image": "images/ekran.jpg",
     "price": 210,
-    "description": "Kia Ceed 2007-2012"
+    "description": "Kia Ceed 2007-2012",
+    "year": [2007,2008,2009,2010,2011,2012],
+    "make": ["Kia"],
+    "model": ["Ceed"]
   },
   {
     "id": 18,
@@ -139,7 +186,10 @@
     "category":"Sükan lentləri",
     "image": "images/sukan_lenti-santafe.jpg",
     "price": 30,
-    "description": "Hyundai Santa Fe 2005-2012"
+    "description": "Hyundai Santa Fe 2005-2012",
+    "year": [2005,2006,2007,2008,2009,2010,2011,2012],
+    "make": ["Hyundai"],
+    "model": ["Santa Fe"]
   },
   {
     "id": 19,
@@ -147,7 +197,10 @@
     "category":"Povorotnik çubuğu",
     "image": "images/povorotnik_cubugu.jpg",
     "price": 30,
-    "description": "Hyundai: Accent 06-10, Getz 02-10, Matrix, Verna Kia: Rio 05-11, Picanto 04-11, Morning 04-07"
+    "description": "Hyundai: Accent 06-10, Getz 02-10, Matrix, Verna Kia: Rio 05-11, Picanto 04-11, Morning 04-07",
+    "year": [2004,2005,2006,2007,2008,2009,2010,2011],
+    "make": ["Hyundai","Kia"],
+    "model": ["Accent","Getz","Verna"]
   },
   {
     "id": 20,
@@ -155,8 +208,8 @@
     "category":"Ventilyatorlar",
     "image": "images/per_kia.jpg",
     "price": 120,
-    "description": "Kia Rio 2005-2011 dizel"
-  }
- 
-  
-]
+    "description": "Kia Rio 2005-2011 dizel",
+    "year": [2005,2006,2007,2008,2009,2010,2011],
+    "make": ["Kia"],
+    "model": ["Rio"]
+  }]

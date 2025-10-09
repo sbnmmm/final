@@ -1,15 +1,20 @@
 // ----------- Car Filters -------------
-const years = [2025, 2024, 2023, 2022, 2021];
-const makes = ['Toyota', 'BMW', 'Mercedes', 'Audi'];
+const years = [2004, 2005, 2006, 2007, 2009, 2010, 2011, 2012, 2014, 2017];
+const makes = ['Toyota', 'Kia', 'Hyundai', 'Audi'];
 const models = {
-  'Toyota': ['Corolla', 'Camry', 'RAV4'],
-  'BMW': ['3 Series', '5 Series', 'X5'],
-  'Mercedes': ['C-Class', 'E-Class', 'GLE'],
+  'Toyota': ['Prius', 'C7R', 'Yaris', '20 Kuza', '30 Kuza'],
+  'Kia': ['Rio', 'Sportage', 'Ceed'],
+  'Hyundai': ['Tucson', 'Accent', 'i30', 'Getz', 'Santa Fe'],
   'Audi': ['A4', 'Q5', 'A6']
 };
 
 function populateSelect(selectElement, options) {
   selectElement.innerHTML = '';
+  const defaultOpt = document.createElement('option');
+  defaultOpt.value = '';
+  defaultOpt.textContent = 'Hamısı';
+  selectElement.appendChild(defaultOpt);
+
   options.forEach(option => {
     const opt = document.createElement('option');
     opt.value = option;
@@ -30,7 +35,7 @@ function saveCart(cart) {
 function addToCart(product) {
   let cart = getCart();
   const existing = cart.find(item => item.id === product.id);
-  if(existing) existing.quantity++;
+  if (existing) existing.quantity++;
   else {
     product.quantity = 1;
     cart.push(product);
@@ -43,7 +48,7 @@ function addToCart(product) {
 function updateCartCount() {
   const cart = getCart();
   const cartCount = document.getElementById('cart-count');
-  if(!cartCount) return;
+  if (!cartCount) return;
 
   const total = cart.reduce((acc, item) => acc + item.quantity, 0);
   cartCount.textContent = total;
@@ -51,24 +56,45 @@ function updateCartCount() {
 }
 
 // ----------- Sidebar Menu -------------
-function openMenu() {
-  document.getElementById("mySidebar").style.width = "250px";
-}
+function openMenu() { document.getElementById("mySidebar").style.width = "250px"; }
+function closeMenu() { document.getElementById("mySidebar").style.width = "0"; }
 
-function closeMenu() {
-  document.getElementById("mySidebar").style.width = "0";
-}
-
-// ----------- Load Products & Sidebar Filter -------------
+// ----------- Products & Render Function -------------
 let allProducts = [];
 
+function renderProducts(products) {
+  const container = document.getElementById('new_products');
+  if (!container) return;
+  container.innerHTML = '';
+
+  if (!products.length) {
+    container.innerHTML = `<p class="no-products">Heç bir məhsul tapılmadı 😢</p>`;
+    return;
+  }
+
+  products.forEach(product => {
+    const card = document.createElement('div');
+    card.classList.add('product-card');
+    card.innerHTML = `
+      <img src="${product.image}" alt="${product.name}">
+      <h3>${product.name}</h3>
+      <p class="price">${product.price} AZN</p>
+      <p class="description">${product.description}</p>
+      <button class="add-to-cart">Səbətə əlavə et</button>
+    `;
+    container.appendChild(card);
+    card.querySelector('.add-to-cart').addEventListener('click', () => addToCart(product));
+  });
+}
+
+// ----------- DOM Loaded -------------
 document.addEventListener('DOMContentLoaded', () => {
   const yearSelect = document.getElementById('year');
   const makeSelect = document.getElementById('make');
   const modelSelect = document.getElementById('model');
 
-  // Car filters
-  if(yearSelect && makeSelect && modelSelect){
+  // Filter dropdownları
+  if (yearSelect && makeSelect && modelSelect) {
     populateSelect(yearSelect, years);
     populateSelect(makeSelect, makes);
 
@@ -79,19 +105,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Display logged in user
+  // İstifadəçi salamı
   const userData = JSON.parse(localStorage.getItem("loggedInUser"));
   const userDisplay = document.getElementById("userDisplay");
   if (userData && userDisplay) {
     userDisplay.textContent = `Salam, ${userData.firstName}`;
   }
 
-  // Update cart count
+  // Səbət sayını yenilə
   updateCartCount();
 
-  // Load products
+  // Məhsulları yüklə
   const container = document.getElementById('new_products');
-  if(!container) return;
+  if (!container) return;
 
   fetch('products.json')
     .then(res => res.json())
@@ -99,41 +125,71 @@ document.addEventListener('DOMContentLoaded', () => {
       allProducts = data;
       renderProducts(allProducts);
 
-      // Sidebar event-lərini qururuq
+      // ----------- Car Filter Axtarışı -------------
+      const searchBtn = document.getElementById('searchBtn');
+      if (searchBtn) {
+        searchBtn.addEventListener('click', () => {
+          const year = document.getElementById('year')?.value;
+          const make = document.getElementById('make')?.value;
+          const model = document.getElementById('model')?.value;
+
+          const filtered = allProducts.filter(p => {
+            const matchYear = !year || !p.year || (Array.isArray(p.year) ? p.year.includes(Number(year)) : p.year == year);
+            let matchMake = false;
+            if (!make) matchMake = true;
+            else if (Array.isArray(p.make)) matchMake = p.make.map(m => m.toLowerCase()).includes(make.toLowerCase());
+            else matchMake = p.make.toLowerCase() === make.toLowerCase();
+
+            const matchModel = !model || (p.model && (
+              Array.isArray(p.model)
+                ? p.model.map(m => m.toLowerCase()).includes(model.toLowerCase())
+                : p.model.toLowerCase() === model.toLowerCase()
+            ));
+
+            return matchYear && matchMake && matchModel;
+          });
+
+          renderProducts(filtered.length ? filtered : []);
+        });
+      }
+
+      // Sidebar kateqoriya filterləri
       const sidebarLinks = document.querySelectorAll('.sidebar a');
       sidebarLinks.forEach(link => {
         link.addEventListener('click', e => {
           e.preventDefault();
           const categoryText = link.textContent.trim().toLowerCase();
-
-          // Filter products by category
           const filtered = allProducts.filter(p => p.category && p.category.toLowerCase() === categoryText);
-
           renderProducts(filtered);
         });
       });
+
+      // Məhsul adı ilə axtarış
+      const nameSearchBtn = document.getElementById('nameSearchBtn');
+      if (nameSearchBtn) {
+        nameSearchBtn.addEventListener('click', () => {
+          const query = document.getElementById('nameSearchInput')?.value.trim().toLowerCase();
+          if (!query) { renderProducts(allProducts); return; }
+
+          const filtered = allProducts.filter(p =>
+            p.name.toLowerCase().includes(query) ||
+            (p.description && p.description.toLowerCase().includes(query))
+          );
+          renderProducts(filtered.length ? filtered : []);
+        });
+      }
+
+      // Enter ilə axtarış
+      const nameSearchInput = document.getElementById('nameSearchInput');
+      if (nameSearchInput) {
+        nameSearchInput.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            document.getElementById('nameSearchBtn')?.click();
+          }
+        });
+      }
+
     })
     .catch(err => console.error('Məhsullar alınmadı:', err));
-
-  // Render Products function
-  function renderProducts(products) {
-    container.innerHTML = '';
-    products.forEach(product => {
-      const card = document.createElement('div');
-      card.classList.add('product-card');
-      card.innerHTML = `
-        <img src="${product.image}" alt="${product.name}">
-        <h3>${product.name}</h3>
-        <p class="price">${product.price} AZN</p>
-        <p class="description">${product.description}</p>
-        <button class="add-to-cart">Səbətə əlavə et</button>`;
-      container.appendChild(card);
-
-      
-      card.querySelector('.add-to-cart').addEventListener('click', () => addToCart(product));
-    });
-  }
 });
-
-
-
