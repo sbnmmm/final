@@ -46,7 +46,7 @@ function setupFAQAccordion() {
 document.addEventListener('DOMContentLoaded', function() {
     setupTabs();
     setupFAQAccordion();
-    
+    updateCartCount(); // ✅ səhifə açılan kimi səbət sayını göstər
     console.log('Policy page initialized successfully');
 });
 
@@ -62,8 +62,10 @@ function smoothScrollToElement(element) {
 window.policyPage = {
     setupTabs,
     setupFAQAccordion,
-    smoothScrollToElement};
+    smoothScrollToElement
+};
 
+// Populate selects (year, make, model)
 function populateSelect(selectElement, options) {
   selectElement.innerHTML = ''; // Mövcud seçimləri təmizləyirik
   options.forEach(option => {
@@ -88,6 +90,8 @@ document.addEventListener('DOMContentLoaded', () => {
     populateSelect(modelSelect, availableModels);
   });
 });
+
+// Məhsulların göstərilməsi
 const container = document.getElementById('new_products');
 
 fetch('json/new_products.json')
@@ -102,7 +106,7 @@ fetch('json/new_products.json')
         <h3>${product.name}</h3>
         <p class="price">${product.price}</p>
         <p class="description">${product.description}</p>
-        <button onclick="addToCart()">Səbətə əlavə et</button>
+        <button onclick="addToCart('${product.name}')">Səbətə əlavə et</button>
       `;
 
       container.appendChild(card);
@@ -111,19 +115,24 @@ fetch('json/new_products.json')
   .catch(err => console.error('Məhsullar alınmadı:', err));
 
 
-let cartCount = 0;
+// ✅ Səbət funksiyaları
+function addToCart(productName) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-function addToCart() {
-  cartCount++;
-  const cartBadge = document.getElementById("cart-count");
-  if (cartCount > 0) {
-    cartBadge.classList.remove("hidden");
-    cartBadge.innerText = cartCount;
+  const existingItem = cart.find(item => item.name === productName);
+  if (existingItem) {
+    existingItem.quantity++;
+  } else {
+    cart.push({ name: productName, quantity: 1 });
   }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
 }
+
 function updateCartCount() {
   const cartBadge = document.getElementById("cart-count");
-  if (!cartBadge) return; // element yoxdursa çıx
+  if (!cartBadge) return;
 
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
@@ -133,69 +142,5 @@ function updateCartCount() {
     cartBadge.classList.remove("hidden");
   } else {
     cartBadge.classList.add("hidden");
-  }}
-
-  let products = [];
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-// DOM hazır olduqda
-document.addEventListener("DOMContentLoaded", () => {
-    const nameSearchInput = document.getElementById('nameSearchInput');
-    const nameSearchBtn = document.getElementById('nameSearchBtn');
-
-    // Products fetch
-    fetch('new_products.json')
-      .then(res => res.json())
-      .then(data => {
-          products = data;
-          // Əgər home.html-də açılıbsa searchResults varsa göstər
-          const results = JSON.parse(localStorage.getItem("searchResults") || "[]");
-          if(results.length > 0){
-            renderProducts(results);
-            localStorage.removeItem("searchResults");
-          } else {
-            renderProducts(products);
-          }
-      });
-
-    // Search funksiyası
-    if(nameSearchInput && nameSearchBtn){
-        const handleSearch = () => {
-            const query = nameSearchInput.value.trim().toLowerCase();
-            if(!query) return;
-            const filtered = products.filter(p =>
-                p.name.toLowerCase().includes(query) ||
-                (p.description && p.description.toLowerCase().includes(query))
-            );
-            localStorage.setItem("searchResults", JSON.stringify(filtered));
-            window.location.href = "home.html";
-        };
-
-        nameSearchBtn.addEventListener("click", handleSearch);
-        nameSearchInput.addEventListener("keypress", e => {
-            if(e.key === "Enter"){
-                e.preventDefault();
-                handleSearch();
-            }
-        });
-    }
-});
-
-// Render function
-function renderProducts(items){
-    const container = document.getElementById('new_products');
-    if(!container) return;
-    container.innerHTML = '';
-    items.forEach(product => {
-        const card = document.createElement('div');
-        card.classList.add('product-card');
-        card.innerHTML = `
-            <img src="${product.image}" alt="${product.name}">
-            <h3>${product.name}</h3>
-            <p class="price">${product.price} AZN</p>
-            <p class="description">${product.description}</p>
-            <button onclick="addToCart()">Səbətə əlavə et</button>
-        `;
-        container.appendChild(card);
-    });
+  }
 }

@@ -377,7 +377,7 @@ footer {
 @media (max-width: 768px) {
     .header_2 {
     flex-direction: column; 
-    align-items: center;    
+    align-items: flex-start;    
     gap: 10px;              
   }
   .header_1 {
@@ -416,6 +416,9 @@ footer {
   .form form {
     width: 100%;
   }
+  .header_2 button{
+    display: none;
+  }
 }
 
 /* Extra small screens (phones) */
@@ -444,4 +447,5 @@ footer {
     align-items: flex-start;    
     gap: 10px;              
   }
+ 
 }

@@ -376,112 +376,125 @@ footer {
   right: 20px;
   font-size: 30px;
   color: #fff;
-  cursor: pointer;
+  cursor: pointer;}
+
+  /* --------- Tablet / Medium Screens --------- */
+@media (max-width: 1024px) {
+  .header_1 {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .input {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .input input,
+  .input button {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .header_2 {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .logo {
+    justify-content: center;
+  }
+
+  .contact {
+    justify-content: flex-start;
+    gap: 12px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
 }
 
-/* Mobil və kiçik ekran üçün */
+/* --------- Mobile / Small Screens --------- */
 @media (max-width: 768px) {
+  .header_1 {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
 
-    /* Header_1 və logo */
-    .header_1 {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-        padding: 10px 15px;
-    }
+  .input {
+    flex-direction: row;
+    width: 100%;
+    gap:0;
+  }
 
-    .logo {
-        justify-content: flex-start;
-        gap: 10px;
-    }
+  .input input {
+    width:400px;
+  }
+    
+ #nameSearchBtn{
+  width:70px;
+ }
+ 
 
-    .logo a {
-        font-size: 24px;
-    }
+  .header_2 {
+    flex-direction: column;
+    align-items: flex-start; /* Yazılar alt-üst və sola dayansın */
+    gap: 8px;
+  }
 
-    /* Input search və button */
-    .input {
-        width: 100%;
-    }
+  .contact {
+    justify-content: center;
+    gap: 10px;
+  }
 
-    .input input {
-        width: calc(100% - 50px);
-        font-size: 14px;
-    }
+  .logo img {
+    width: 90px;
+  }
 
-    .input button {
-        width: 45px;
-        height: 40px;
-    }
-
-    /* Header_2 */
-    .header_2 {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 8px;
-    }
-
-    .header_2 button,
-    .header_2 a {
-        width: 100%;
-        text-align: center;
-        font-size: 16px;
-    }
-
-    /* Cart container */
-    .cart-container {
-        padding: 15px;
-        width: 95%;
-    }
-
-    .cart-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-
-    .quantity-controls {
-        justify-content: flex-start;
-    }
-
-    .item-total {
-        text-align: left;
-        margin-top: 10px;
-    }
-
-    /* Sidebar */
-    .sidebar {
-        width: 80%;
-        padding-top: 50px;
-    }
-
-    .sidebar a {
-        font-size: 16px;
-        padding: 8px 15px;
-    }
-
-    /* Footer */
-    .footer-container {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .footer-bottom {
-        text-align: left;
-    }
-
-    /* Məhsullar */
-    .products-container {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .product-card {
-        width: 100%;
-    }
-
-    /* Hero content mobil gizlətmə */
-    .header_2 button{
-        display: none;
-    }
+  .logo a {
+    font-size: 22px;
+  }
+   .sidebar,.header_2 button{
+    display: none !important;
+  }
 }
+
+/* --------- Extra Small Screens / Phones --------- */
+@media (max-width: 480px) {
+  .header_2 a {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+  
+  .input input {
+    font-size: 14px;
+  }
+
+  .cart-container {
+    margin:auto;
+  }
+
+  .cart-item {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .quantity-controls {
+    gap: 5px;
+  }
+
+  .item-total {
+    text-align: left;
+  }
+  
+  /* Sidebar mobil ekranlarda gizlədilsin */
+  .sidebar,.header_2 button{
+    display: none !important;
+  }
+}
+
