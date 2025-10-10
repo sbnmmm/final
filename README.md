@@ -1,9 +1,11 @@
 Forsaj autoparts – Sənin Avto Ehtiyat Hissələri Saytı 🚗
 
 👋 Xoş gəlmisiniz!
+
 AutoParts saytında siz müxtəlif markalar üçün ehtiyat hissələrini tapa, sifariş edə və səbət vasitəsilə ala bilərsiniz. İstər Toyota, Kia, Hyundai, Lexus və digər markalar olsun – bütün ehtiyat hissələri bir yerdə!
 
 🚀 Əsas Xüsusiyyətlər
+
 ✅ Marka və Model üzrə Axtarış – İstədiyiniz avtomobil üçün ehtiyat hissələrini tez tapın.
 
 ✅ Səbət Funksiyası – Seçilmiş məhsulları səbətə əlavə edin və sifariş verin.
