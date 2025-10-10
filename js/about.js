@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const nameSearchBtn = document.getElementById('nameSearchBtn');
 
     // Products fetch
-    fetch('new_products.json')
+    fetch('json/new_products.json')
       .then(res => res.json())
       .then(data => {
           products = data;

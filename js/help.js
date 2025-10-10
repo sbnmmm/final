@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 const container = document.getElementById('new_products');
 
-fetch('new_products.json')
+fetch('json/new_products.json')
   .then(res => res.json())
   .then(data => {
     data.forEach(product => {

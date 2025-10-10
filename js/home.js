@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('new_products');
   if (!container) return;
 
-  fetch('products.json')
+  fetch('json/products.json')
     .then(res => res.json())
     .then(data => {
       allProducts = data;

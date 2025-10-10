@@ -175,7 +175,7 @@ body {
   color: #fff;
 }
 .filter {
-  background-image: url("bg-site.png");
+  background-image: url("../images/bg-site.png");
   background-size: cover;
   background-repeat: no-repeat;
   color: white;

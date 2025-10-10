@@ -103,7 +103,7 @@ function loadProducts() {
   const container = document.getElementById('new_products');
   if(!container) return;
 
-  fetch('new_products.json')
+  fetch('json/new_products.json')
     .then(res => res.json())
     .then(products => {
       allProducts = products;

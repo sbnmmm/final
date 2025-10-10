@@ -2,7 +2,7 @@ let products = [];
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 // Product-ları fetch edirik
-fetch('products.json')
+fetch('json/products.json')
   .then(res => res.json())
   .then(data => {
     products = data;
