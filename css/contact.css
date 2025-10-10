@@ -450,7 +450,9 @@ footer {
   .contain_1 h1 {
     font-size: 24px;
   }
-
+.form label[for="phone"] {
+    white-space: nowrap; /* yazı tək sətirdə qalsın */
+  }
   .form input[type="text"],
   .form textarea {
     padding: 10px;

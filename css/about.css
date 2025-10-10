@@ -375,6 +375,11 @@ footer {
 
 /* Small screens (mobile) */
 @media (max-width: 768px) {
+    .header_2 {
+    flex-direction: column; 
+    align-items: center;    
+    gap: 10px;              
+  }
   .header_1 {
     flex-direction: column;
     align-items: center;
@@ -427,9 +432,16 @@ footer {
     font-size: 14px;
   }
 
-  .header_2 a,
-  .header_2 button {
+  .header_2 a{
     font-size: 14px;
     padding: 6px 10px;
+  }
+  .header_2 button{
+    display: none;
+  }
+    .header_2 {
+    flex-direction: column; 
+    align-items: flex-start;    
+    gap: 10px;              
   }
 }
