@@ -12,11 +12,11 @@ fetch('products.json')
   });
 
 // Products render funksiyası
-function renderProducts() {
+function renderProducts(items = products) {
   const container = document.getElementById('products-container');
   if(!container) return;
   container.innerHTML = '';
-  products.forEach(p => {
+  items.forEach(p => {
     const div = document.createElement('div');
     div.classList.add('product-item');
     div.innerHTML = `
@@ -120,7 +120,7 @@ function removeFromCart(index){
   showCart();
 }
 
-// Sifarişi tamamla buttonu
+// ----------- Complete Order -------------
 const cartContainer = document.getElementById("cart-items");
 const completeBtn = document.createElement("button");
 completeBtn.textContent = "Sifarişi tamamla";
@@ -134,8 +134,26 @@ completeBtn.style.cssText = `
   border-radius: 5px;
   cursor: pointer;
 `;
+
 completeBtn.addEventListener("click", () => {
-  alert("Sifarişiniz qeydə alındı!");
+  const customerName = prompt("Zəhmət olmasa adınızı daxil edin:");
+  const customerPhone = prompt("Zəhmət olmasa telefon nömrənizi daxil edin:");
+
+  if(!customerName || !customerPhone){
+    alert("Sifariş üçün ad və telefon nömrəsi vacibdir!");
+    return;
+  }
+
+  const order = {
+    customerName,
+    customerPhone,
+    items: cart,
+    total: cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
+  };
+
+  console.log("Sifariş qeydə alındı:", order);
+  alert(`Sifarişiniz qeydə alındı!\nAd: ${customerName}\nTel: ${customerPhone}`);
+
   cart = [];
   localStorage.setItem("cart", JSON.stringify(cart));
   showCart();
@@ -149,13 +167,44 @@ function toggleCompleteButton() {
   }
 }
 
-// Page load zamanı
+// ----------- Search Functionality -------------
+const nameSearchInput = document.getElementById('nameSearchInput');
+const nameSearchBtn = document.getElementById('nameSearchBtn');
+
+if(nameSearchInput && nameSearchBtn){
+  const handleSearch = () => {
+    const query = nameSearchInput.value.trim().toLowerCase();
+    if(!query){
+      renderProducts();
+      return;
+    }
+    const filtered = products.filter(p =>
+      p.name.toLowerCase().includes(query) ||
+      (p.description && p.description.toLowerCase().includes(query))
+    );
+    // Home.html-ə yönləndir
+    localStorage.setItem("searchResults", JSON.stringify(filtered));
+    window.location.href = "home.html";
+  };
+
+  nameSearchBtn.addEventListener("click", handleSearch);
+  nameSearchInput.addEventListener("keypress", e => {
+    if(e.key === "Enter"){
+      e.preventDefault();
+      handleSearch();
+    }
+  });
+}
+
+// ----------- Page load for cart -------------
 document.addEventListener("DOMContentLoaded", () => {
   showCart();
   updateCartCount();
+
+  // Home.html açıldıqda searchResults varsa göstər
+  const results = JSON.parse(localStorage.getItem("searchResults") || "[]");
+  if(results.length > 0){
+    renderProducts(results);
+    localStorage.removeItem("searchResults");
+  }
 });
-
-
-
-
-

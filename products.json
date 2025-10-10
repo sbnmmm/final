@@ -212,4 +212,131 @@
     "year": [2005,2006,2007,2008,2009,2010,2011],
     "make": ["Kia"],
     "model": ["Rio"]
-  }]
+  },
+    {
+    "id": 21,
+    "name": "Sbor qranat ön sol",
+    "category":"Qranat",
+    "image": "images/col_qranat.jpg",
+    "price": 110,
+    "description": "Kia Rio 2005-2011- CCL firması",
+    "year": [2005,2006,2007,2008,2009,2010,2011],
+    "make": ["Kia"],
+    "model": ["Rio"]
+  },
+  {
+    "id": 22,
+    "name": "Ön ekran",
+    "category":"Panel ekranlar",
+    "image": "images/ekran_ceed.jpg",
+    "price": 250,
+    "description": "Kia Ceed 2007-2012",
+    "year": [2007,2008,2009,2010,2011,2012],
+    "make": ["Kia"],
+    "model": ["Ceed"]
+  },
+  {
+    "id": 23,
+    "name": "Elektron rulovoy",
+    "category":"Rulovoylar",
+    "image": "images/elektron_rulovoy.jpg",
+    "price": 230,
+    "description": "Hyundai Sonata, Kia Optima",
+    "make": ["Hyundai","Kia"],
+    "model": ["Sonata","Optima"]
+  },
+  {
+    "id": 24,
+    "name": "Güzgü",
+    "category":"Güzgülər",
+    "image": "images/guzgu_byd.jpg",
+    "price": 57,
+    "description": "Byd Destroyer 05",
+    "make": ["Byd"],
+    "model": ["Destroyer"]
+  },
+  {
+    "id": 25,
+    "name": "Elektron güzgü",
+    "category":"Güzgülər",
+    "image": "images/guzgu_elektronik.jpg",
+    "price": 80,
+    "description": "Hyundai Getz",
+    "make": ["Hyundai"],
+    "model": ["Getz"]
+  },
+  {
+    "id": 26,
+    "name": "Mexaniki güzgü",
+    "category":"Güzgülər",
+    "image": "images/guzgu_mexaniki.jpg",
+    "price": 60,
+    "description": "Kia Ceed, Lexus Accent",
+    "make": ["Kia","Lexus"],
+    "model": ["Ceed","Camry"]
+  },
+  {
+    "id": 27,
+    "name": "İnvertor pompası",
+    "category":"İnvertor pompası",
+    "image": "images/invertor_pompasi_20.jpg",
+    "price": 65,
+    "description": "Kingsteel ivertor pompasi",
+    "make": ["Kingsteel"],
+    "model": ["Crown"]
+  },
+  {
+    "id": 28,
+    "name": "Sükan Lenti",
+    "category":"Sükan lentləri",
+    "image": "images/prado lent.jpg",
+    "price": 20,
+    "description": "Toyota Prado sükan lenti",
+    "make": ["Toyota"],
+    "model": ["Prado"]
+  },
+  {
+    "id": 29,
+    "name": "Rıçaq",
+    "category":"Povorotnik çubuğu",
+    "image": "images/ricaq.jpg",
+    "price": 290,
+    "description": "Hyundai Tucson 2010-2013, Hyundai Genesis Coupe 2008-2012, Kia Cerato 2009-2013 ",
+    "year": [2008,2009,2010,2011,2012],
+    "make": ["Hyundai","Kia"],
+    "model": ["Tucson","Cerato"]
+  },
+  {
+    "id": 30,
+    "name": "Rulovoy hidravlik",
+    "category":"Rulovoylar",
+    "image": "images/rulovoy_cowtotal.jpg",
+    "price": 230,
+    "description": "Hyundai Santafe 2006-2009",
+    "year": [2006,2007,2008,2009],
+    "make": ["Hyundai"],
+    "model": ["Santa Fe"]
+  },
+  {
+    "id": 31,
+    "name": "Travers",
+    "category":"Traverslər",
+    "image": "images/travers_ceed.jpg",
+    "price": 290,
+    "description": "Kia Ceed 2007-2012, Hyundai i30- 2006-2012",
+    "year": [2006,2007,2008,2009,2010,2011,2012],
+    "make": ["Hyundai","Kia"],
+    "model": ["Ceed","i30"]
+  },
+  {
+    "id": 32,
+    "name": "Ön travers",
+    "category":"Traverslər",
+    "image": "images/travers-2 hundai getz.jpg",
+    "price": 200,
+    "description": "Kia Rio 2005-2011",
+    "year": [2005,2006,2007,2008,2009,2010,2011],
+    "make": ["Kia"],
+    "model": ["Rio"]
+  }
+]

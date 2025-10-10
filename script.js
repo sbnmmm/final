@@ -1,15 +1,20 @@
 // ----------- Car Filters -------------
-const years = [2004, 2005, 2006,2007, 2009,2010,2011, 2012,2014,2017];
+const years = [2004, 2005, 2006, 2007, 2009, 2010, 2011, 2012, 2014, 2017];
 const makes = ['Toyota', 'Kia', 'Hyundai', 'Audi'];
 const models = {
-   'Toyota': ['Prius', 'C7R', 'Yaris','20 Kuza','30 Kuza'],
+  'Toyota': ['Prius', 'C7R', 'Yaris', '20 Kuza', '30 Kuza'],
   'Kia': ['Rio', 'Sportage', 'Ceed'],
-  'Hyundai': ['Tucson', 'Accent', 'i30','Getz','Santa Fe'],
+  'Hyundai': ['Tucson', 'Accent', 'i30', 'Getz', 'Santa Fe'],
   'Audi': ['A4', 'Q5', 'A6']
 };
 
 function populateSelect(selectElement, options) {
   selectElement.innerHTML = '';
+  const defaultOpt = document.createElement('option');
+  defaultOpt.value = '';
+  defaultOpt.textContent = 'Hamısı';
+  selectElement.appendChild(defaultOpt);
+
   options.forEach(option => {
     const opt = document.createElement('option');
     opt.value = option;
@@ -104,39 +109,53 @@ function loadProducts() {
       allProducts = products;
       renderProducts(allProducts); 
 
-     // ----------- Search Filter -------------
-const searchBtn = document.getElementById('searchBtn');
-if (searchBtn) {
-  searchBtn.addEventListener('click', () => {
-    const year = document.getElementById('year')?.value;
-    const make = document.getElementById('make')?.value;
-    const model = document.getElementById('model')?.value;
+      // ----------- Vehicle Filter -------------
+      const searchBtn = document.getElementById('searchBtn');
+      if (searchBtn) {
+        searchBtn.addEventListener('click', () => {
+          const year = document.getElementById('year')?.value;
+          const make = document.getElementById('make')?.value;
+          const model = document.getElementById('model')?.value;
 
-    const filtered = allProducts.filter(p => {
-      // Year uyğunluğu (string və number fərqini də həll edirik)
-      const matchYear = !year || !p.year || (Array.isArray(p.year) ? p.year.includes(Number(year)) : p.year == year);
+          const filtered = allProducts.filter(p => {
+            const matchYear = !year || !p.year || (Array.isArray(p.year) ? p.year.includes(Number(year)) : p.year == year);
+            let matchMake = false;
+            if (!make) matchMake = true;
+            else if (Array.isArray(p.make)) matchMake = p.make.map(m => m.toLowerCase()).includes(make.toLowerCase());
+            else matchMake = p.make.toLowerCase() === make.toLowerCase();
+            const matchModel = !model || (p.model && (
+              Array.isArray(p.model) ? p.model.map(m => m.toLowerCase()).includes(model.toLowerCase()) : p.model.toLowerCase() === model.toLowerCase()
+            ));
+            return matchYear && matchMake && matchModel;
+          });
 
+          renderProducts(filtered.length ? filtered : []);
+        });
+      }
 
-      // Make uyğunluğu (array və string üçün)
-      let matchMake = false;
-      if (!make) matchMake = true;
-      else if (Array.isArray(p.make)) matchMake = p.make.map(m => m.toLowerCase()).includes(make.toLowerCase());
-      else matchMake = p.make.toLowerCase() === make.toLowerCase();
+      // ----------- Məhsul adı ilə axtarış + Enter ---------
+      const nameSearchBtn = document.getElementById('nameSearchBtn');
+      const nameSearchInput = document.getElementById('nameSearchInput');
 
-      // Model uyğunluğu (array və string üçün)
-      const matchModel = !model || (p.model && (
-        Array.isArray(p.model) ? p.model.map(m => m.toLowerCase()).includes(model.toLowerCase()) : p.model.toLowerCase() === model.toLowerCase()
-      ));
+      if (nameSearchBtn && nameSearchInput) {
+        const handleSearch = () => {
+          const query = nameSearchInput.value.trim().toLowerCase();
+          if (!query) { renderProducts(allProducts); return; }
 
-      return matchYear && matchMake && matchModel;
-    });
+          const filtered = allProducts.filter(p =>
+            p.name.toLowerCase().includes(query) ||
+            (p.description && p.description.toLowerCase().includes(query))
+          );
+          renderProducts(filtered.length ? filtered : []);
+        };
 
-    renderProducts(filtered.length ? filtered : []);
-  });
-  }
+        nameSearchBtn.addEventListener('click', handleSearch);
+        nameSearchInput.addEventListener('keypress', e => {
+          if (e.key === 'Enter') handleSearch();
+        });
+      }
 
-        
-      // Sidebar klikləri
+      // ----------- Sidebar Category Filter -------------
       const sidebarLinks = document.querySelectorAll('.sidebar a');
       sidebarLinks.forEach(link => {
         link.addEventListener('click', e => {
@@ -146,6 +165,7 @@ if (searchBtn) {
           renderProducts(filtered);
         });
       });
+
     })
     .catch(err => console.error('Məhsullar alınmadı:', err));
 }
@@ -157,7 +177,7 @@ function renderProducts(products) {
   container.innerHTML = '';
 
   if (products.length === 0) {
-    container.innerHTML = '<p style="text-align:center;">Bu kateqoriyada məhsul tapılmadı.</p>';
+    container.innerHTML = '<p style="text-align:center;">Heç bir məhsul tapılmadı 😢</p>';
     return;
   }
 
@@ -172,7 +192,6 @@ function renderProducts(products) {
       <button class="add-to-cart">Səbətə əlavə et</button>`;
     container.appendChild(card);
 
-    // Add-to-cart düyməsini aktiv et
-    card.querySelector('.add-to-cart').addEventListener('click', () => addToCart(product));
+ card.querySelector('.add-to-cart').addEventListener('click', () => addToCart(product));
   });
 }

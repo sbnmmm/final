@@ -62,17 +62,7 @@ function smoothScrollToElement(element) {
 window.policyPage = {
     setupTabs,
     setupFAQAccordion,
-    smoothScrollToElement
-};
-
-const years = [2025, 2024, 2023, 2022, 2021]; // Məsələn, son 5 ili göstəririk
-const makes = ['Toyota', 'BMW', 'Mercedes', 'Audi'];
-const models = {
-  'Toyota': ['Corolla', 'Camry', 'RAV4'],
-  'BMW': ['3 Series', '5 Series', 'X5'],
-  'Mercedes': ['C-Class', 'E-Class', 'GLE'],
-  'Audi': ['A4', 'Q5', 'A6']
-};
+    smoothScrollToElement};
 
 function populateSelect(selectElement, options) {
   selectElement.innerHTML = ''; // Mövcud seçimləri təmizləyirik
@@ -143,10 +133,69 @@ function updateCartCount() {
     cartBadge.classList.remove("hidden");
   } else {
     cartBadge.classList.add("hidden");
-  }
-}
+  }}
 
-// Page load zamanı hər səhifədə çağır
+  let products = [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+// DOM hazır olduqda
 document.addEventListener("DOMContentLoaded", () => {
-  updateCartCount();
+    const nameSearchInput = document.getElementById('nameSearchInput');
+    const nameSearchBtn = document.getElementById('nameSearchBtn');
+
+    // Products fetch
+    fetch('new_products.json')
+      .then(res => res.json())
+      .then(data => {
+          products = data;
+          // Əgər home.html-də açılıbsa searchResults varsa göstər
+          const results = JSON.parse(localStorage.getItem("searchResults") || "[]");
+          if(results.length > 0){
+            renderProducts(results);
+            localStorage.removeItem("searchResults");
+          } else {
+            renderProducts(products);
+          }
+      });
+
+    // Search funksiyası
+    if(nameSearchInput && nameSearchBtn){
+        const handleSearch = () => {
+            const query = nameSearchInput.value.trim().toLowerCase();
+            if(!query) return;
+            const filtered = products.filter(p =>
+                p.name.toLowerCase().includes(query) ||
+                (p.description && p.description.toLowerCase().includes(query))
+            );
+            localStorage.setItem("searchResults", JSON.stringify(filtered));
+            window.location.href = "home.html";
+        };
+
+        nameSearchBtn.addEventListener("click", handleSearch);
+        nameSearchInput.addEventListener("keypress", e => {
+            if(e.key === "Enter"){
+                e.preventDefault();
+                handleSearch();
+            }
+        });
+    }
 });
+
+// Render function
+function renderProducts(items){
+    const container = document.getElementById('new_products');
+    if(!container) return;
+    container.innerHTML = '';
+    items.forEach(product => {
+        const card = document.createElement('div');
+        card.classList.add('product-card');
+        card.innerHTML = `
+            <img src="${product.image}" alt="${product.name}">
+            <h3>${product.name}</h3>
+            <p class="price">${product.price} AZN</p>
+            <p class="description">${product.description}</p>
+            <button onclick="addToCart()">Səbətə əlavə et</button>
+        `;
+        container.appendChild(card);
+    });
+}
