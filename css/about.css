@@ -353,3 +353,83 @@ footer {
 .brand-card:hover {
   transform: translateY(-5px);
 }
+/* Medium screens (tablet) */
+@media (max-width: 1024px) {
+  .header_1 {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .input {
+    flex: 1;
+    min-width: 250px;
+  }
+
+  .header_2 {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+}
+
+/* Small screens (mobile) */
+@media (max-width: 768px) {
+  .header_1 {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .input {
+    flex-direction: row;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .contact {
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .contain_1 h1 {
+    text-align: center;
+    font-size: 28px;
+  }
+
+  .contain_2, .contain_3 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .map iframe {
+    width: 100%;
+    min-height: 200px;
+  }
+
+  .form form {
+    width: 100%;
+  }
+}
+
+/* Extra small screens (phones) */
+@media (max-width: 480px) {
+  .logo img {
+    width: 90px;
+  }
+
+  .logo a {
+    font-size: 22px;
+  }
+
+  .input input {
+    font-size: 14px;
+  }
+
+  .header_2 a,
+  .header_2 button {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+}

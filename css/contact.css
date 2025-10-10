@@ -401,3 +401,74 @@ footer {
   color: #fff;
   cursor: pointer;
 }
+/* --------- Responsive --------- */
+@media (max-width: 1024px) {
+  .contain_3 {
+    grid-template-columns: 1fr; /* map və form alt-üst düşsün */
+    gap: 20px;
+  }
+
+  .contain_2 {
+    flex-direction: column;
+  }
+
+  .contain_2 div {
+    flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .header_1 {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .input {
+    width: 100%;
+  }
+
+  .input input {
+    width: 100%;
+  }
+
+  .header_2 {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .contact {
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .logo {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .contain_1 h1 {
+    font-size: 24px;
+  }
+
+  .form input[type="text"],
+  .form textarea {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  button {
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+
+  .card-footer {
+    flex-direction: column;
+    gap: 6px;
+    font-size: 12px;
+  }
+
+  .contain_2 div {
+    padding: 12px;
+  }
+}

@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
 h1 {
   text-align: center;
   margin-bottom: 30px;
@@ -113,12 +119,6 @@ h1 {
   margin-top: 50px;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  text-decoration: none;
-}
 
 body {
   font-family: 'Montserrat', sans-serif;
@@ -379,3 +379,109 @@ footer {
   cursor: pointer;
 }
 
+/* Mobil və kiçik ekran üçün */
+@media (max-width: 768px) {
+
+    /* Header_1 və logo */
+    .header_1 {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 10px 15px;
+    }
+
+    .logo {
+        justify-content: flex-start;
+        gap: 10px;
+    }
+
+    .logo a {
+        font-size: 24px;
+    }
+
+    /* Input search və button */
+    .input {
+        width: 100%;
+    }
+
+    .input input {
+        width: calc(100% - 50px);
+        font-size: 14px;
+    }
+
+    .input button {
+        width: 45px;
+        height: 40px;
+    }
+
+    /* Header_2 */
+    .header_2 {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+
+    .header_2 button,
+    .header_2 a {
+        width: 100%;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    /* Cart container */
+    .cart-container {
+        padding: 15px;
+        width: 95%;
+    }
+
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .quantity-controls {
+        justify-content: flex-start;
+    }
+
+    .item-total {
+        text-align: left;
+        margin-top: 10px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+        width: 80%;
+        padding-top: 50px;
+    }
+
+    .sidebar a {
+        font-size: 16px;
+        padding: 8px 15px;
+    }
+
+    /* Footer */
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .footer-bottom {
+        text-align: left;
+    }
+
+    /* Məhsullar */
+    .products-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .product-card {
+        width: 100%;
+    }
+
+    /* Hero content mobil gizlətmə */
+    .header_2 button{
+        display: none;
+    }
+}
