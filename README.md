@@ -4,6 +4,9 @@
 Forsaj AutoParts – avtomobil ehtiyat hissələrinin satışına həsr olunmuş, müasir dizaynlı və interaktiv veb platformadır.
 Burada siz Toyota, Kia, Hyundai, Lexus və digər markalar üçün orijinal və keyfiyyətli hissələri tapa, səbətə əlavə edib sifariş edə bilərsiniz.
 
+
+
+
 🚀 Əsas Xüsusiyyətlər
 
 ✅ Marka və Model üzrə Axtarış – avtomobiliniz üçün uyğun ehtiyat hissəsini asan tapın.
@@ -13,6 +16,9 @@ Burada siz Toyota, Kia, Hyundai, Lexus və digər markalar üçün orijinal və 
 ✅ Mobil Dostu Dizayn – hər cihazda ideal görünüş.
 ✅ Dinamik Məlumat – məhsullar JSON fayllarından avtomatik yüklənir.
 
+
+
+
 🧭 Necə işləyir?
 
 1. Saytı açın: index.html və ya canlı səhifəni (GitHub Pages / Netlify).
@@ -20,13 +26,19 @@ Burada siz Toyota, Kia, Hyundai, Lexus və digər markalar üçün orijinal və 
 3. Məhsulu seçib “Səbətə əlavə et” düyməsinə basın.
 4. “Sifarişi Tamamla” modal pəncərəsi ilə sifariş məlumatınızı daxil edin.
 
+
+
+
 🧩 Texniki Məlumatlar
+
 Texnologiya	           İzah
 HTML / CSS / JS	      Saytın əsas quruluşu və interaktiv funksiyalar
 LocalStorage	        Səbət məlumatlarının saxlanması
 JSON	                Məhsul siyahısının yüklənməsi
 Responsive Dizayn	    Mobil və masaüstü uyğunluğu
 Modal + Toast	        Müasir sifariş formu və bildiriş sistemi
+
+
 
 🔍 Axtarış və Filterlər
 
@@ -50,27 +62,7 @@ Bütün məlumatlar localStorage vasitəsilə yadda saxlanır.
 
 “Sifarişi Tamamla” düyməsi klikləndikdə müasir modal forma açılır.
 
-⚙️ Layihə Quruluşu
-final/
-├─ index.html
-├─ home.html
-├─ about.html
-├─ contact.html
-├─ help.html
-├─ css/
-│  ├─ style.css
-│  ├─ home.css
-│  └─ contact.css
-├─ js/
-│  ├─ main.js
-│  ├─ home.js
-│  ├─ cart.js
-│  └─ contact.js
-├─ json/
-│  └─ products.json
-├─ images/
-│  └─ ...
-└─ README.md
+
 
 🌐 SEO və Accessibility
 
