@@ -1,61 +1,122 @@
-Forsaj autoparts – Sənin Avto Ehtiyat Hissələri Saytı 🚗
+🚗 Forsaj AutoParts – Forsaj Ehtiyat Hissələri
 
 👋 Xoş gəlmisiniz!
-
-AutoParts saytında siz müxtəlif markalar üçün ehtiyat hissələrini tapa, sifariş edə və səbət vasitəsilə ala bilərsiniz. İstər Toyota, Kia, Hyundai, Lexus və digər markalar olsun – bütün ehtiyat hissələri bir yerdə!
+Forsaj AutoParts – avtomobil ehtiyat hissələrinin onlayn kataloqudur.
+Burada siz Toyota, Kia, Hyundai, Lexus və digər markalar üçün orijinal və keyfiyyətli hissələri tapa, səbətə əlavə edib sifariş edə bilərsiniz.
 
 🚀 Əsas Xüsusiyyətlər
 
-✅ Marka və Model üzrə Axtarış – İstədiyiniz avtomobil üçün ehtiyat hissələrini tez tapın.
+✅ Marka və Model üzrə Axtarış – avtomobiliniz üçün uyğun ehtiyat hissəsini asan tapın.
+✅ Səbət Funksiyası – məhsulları səbətə əlavə edin və sifarişi rahat tamamlayın.
+✅ Kateqoriya Filtrləri – məhsulları növlərə görə süzgəcdən keçirin.
+✅ Axtarış Sistemi – məhsul adı və təsvirinə görə ani nəticələr.
+✅ Mobil Dostu Dizayn – hər cihazda ideal görünüş.
+✅ Dinamik Məlumat – məhsullar JSON fayllarından avtomatik yüklənir.
 
-✅ Səbət Funksiyası – Seçilmiş məhsulları səbətə əlavə edin və sifariş verin.
+🧭 Necə işləyir?
 
-✅ Kateqoriya Filtrləri – Məhsulları növlərə görə filtrləyin.
+Saytı açın: index.html və ya canlı səhifəni (GitHub Pages / Netlify).
 
-✅ Axtarış Sistemi – Məhsul adı və təsvirinə görə sürətli axtarış.
+Axtarış və filterlərdən istifadə edin.
 
-✅ Mobil Dostu Dizayn – Sayt mobil cihazlarda da rahat istifadə olunur.
+Məhsulu seçib “Səbətə əlavə et” düyməsinə basın.
 
-✅ Dinamik Yükləmə – Məhsullar JSON fayldan dinamik yüklənir.
+“Sifarişi Tamamla” modal pəncərəsi ilə sifariş məlumatınızı daxil edin.
 
-📌 Başlamaq
+🧩 Texniki Məlumatlar
+Texnologiya	İzah
+HTML / CSS / JS	Saytın əsas quruluşu və interaktiv funksiyalar
+LocalStorage	Səbət məlumatlarının saxlanması
+JSON	Məhsul siyahısının yüklənməsi
+Responsive Dizayn	Mobil və masaüstü uyğunluğu
+Modal + Toast	Müasir sifariş formu və bildiriş sistemi
+🔍 Axtarış və Filterlər
 
-Saytı açın.
+Marka, model və il üzrə avtomatik süzgəc.
 
-Axtarış və filtrlərdən istifadə edərək ehtiyat hissəsini seçin.
+Sidebar-dakı kateqoriyalara klikləməklə məhsulları filtrləmə.
 
-Məhsulu səbətə əlavə edin və sifarişinizi tamamlayın.
+Məhsul adı ilə sürətli axtarış (input + Enter və ya Axtar düyməsi).
 
-🔹 Məhsul Axtarışı və Filterlər
+Filterlər və axtarış nəticələri home.html-də avtomatik göstərilir.
 
-Marka, model və il üzrə axtarış.
+🛒 Səbət Funksiyaları
 
-Sidebar kateqoriya filterləri ilə məhsulları kateqoriyalara görə süzgəcdən keçirmək.
+Məhsulu “Səbətə əlavə et” ilə əlavə et.
 
-Məhsul adı ilə sürətli axtarış.
+Məhsul sayı dinamik olaraq göstərilir.
 
-🛒 Səbət Funksiyası
+Səbətdə məhsul sayını artırmaq, azaltmaq və silmək mümkündür.
 
-Məhsulu səbətə əlavə etmək üçün “Səbətə əlavə et” düyməsi.
+Bütün məlumatlar localStorage vasitəsilə yadda saxlanır.
 
-Səbətdə məhsul sayını avtomatik göstərir.
+“Sifarişi Tamamla” düyməsi klikləndikdə müasir modal forma açılır.
 
-Səbətdəki məhsullar localStorage vasitəsilə yadda saxlanılır.
+⚙️ Layihə Quruluşu
+final/
+├─ index.html
+├─ home.html
+├─ about.html
+├─ contact.html
+├─ help.html
+├─ css/
+│  ├─ style.css
+│  ├─ home.css
+│  └─ contact.css
+├─ js/
+│  ├─ main.js
+│  ├─ home.js
+│  ├─ cart.js
+│  └─ contact.js
+├─ json/
+│  └─ products.json
+├─ images/
+│  └─ ...
+└─ README.md
 
-⚙ Texniki Detallar
+🌐 SEO və Accessibility
 
-HTML / CSS / JavaScript – Frontend və interaktiv elementlər.
+Hər səhifədə unikal <title> və <meta description>
 
-localStorage – Səbət və istifadəçi məlumatları.
+OG (Open Graph) dəstəyi:
 
-JSON fayllar – Məhsulların dinamik yüklənməsi.
+<meta property="og:title" content="Forsaj AutoParts – Avto Ehtiyat Hissələri">
+<meta property="og:description" content="Toyota, Kia, Hyundai, Lexus və daha çox markalar üçün ehtiyat hissələri.">
+<meta property="og:image" content="images/logo.png">
 
-Responsive dizayn – Mobil və desktop uyğunluğu.
 
-📌 İstifadəçi Göstərişi
+Accessibility üçün:
 
-Sayta daxil olun, marka və modeli seçin.
+Hər şəkil üçün alt atributu
 
-Məhsulu seçib səbətə əlavə edin.
+aria-label və role atributları
 
-Səbət ikonuna klikləyərək məhsulları yoxlayın.
+Fokus və klaviatura dəstəyi
+
+🚀 Gələcək Planlar
+
+🔄 Backend API inteqrasiyası (Node.js / Express)
+
+💳 Online ödəniş sistemi (Stripe və s.)
+
+📦 Məhsul idarə paneli (Admin)
+
+🔔 Bildiriş sistemi (toast + notifikasiyalar)
+
+🌍 Dil dəstəyi (AZ / EN / RU)
+
+🧑‍💻 Müəllif və Əlaqə
+
+Forsaj AutoParts
+📍 Bakı, Azərbaycan
+📞 +994 70 873 17 84
+📧 info@autopart.az
+
+📸 Instagram
+
+🌐 GitHub Repository
+
+📄 Lisenziya
+
+Bu layihə MIT License altında yayımlanır.
+İstədiyiniz kimi istifadə edə və inkişaf etdirə bilərsiniz. 💪
