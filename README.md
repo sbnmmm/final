@@ -1,7 +1,7 @@
 🚗 Forsaj AutoParts – Forsaj Ehtiyat Hissələri
 
 👋 Xoş gəlmisiniz!
-Forsaj AutoParts – avtomobil ehtiyat hissələrinin onlayn kataloqudur.
+Forsaj AutoParts – avtomobil ehtiyat hissələrinin satışına həsr olunmuş, müasir dizaynlı və interaktiv veb platformadır.
 Burada siz Toyota, Kia, Hyundai, Lexus və digər markalar üçün orijinal və keyfiyyətli hissələri tapa, səbətə əlavə edib sifariş edə bilərsiniz.
 
 🚀 Əsas Xüsusiyyətlər
@@ -15,21 +15,19 @@ Burada siz Toyota, Kia, Hyundai, Lexus və digər markalar üçün orijinal və 
 
 🧭 Necə işləyir?
 
-Saytı açın: index.html və ya canlı səhifəni (GitHub Pages / Netlify).
-
-Axtarış və filterlərdən istifadə edin.
-
-Məhsulu seçib “Səbətə əlavə et” düyməsinə basın.
-
-“Sifarişi Tamamla” modal pəncərəsi ilə sifariş məlumatınızı daxil edin.
+1. Saytı açın: index.html və ya canlı səhifəni (GitHub Pages / Netlify).
+2. Axtarış və filterlərdən istifadə edin.
+3. Məhsulu seçib “Səbətə əlavə et” düyməsinə basın.
+4. “Sifarişi Tamamla” modal pəncərəsi ilə sifariş məlumatınızı daxil edin.
 
 🧩 Texniki Məlumatlar
-Texnologiya	İzah
-HTML / CSS / JS	Saytın əsas quruluşu və interaktiv funksiyalar
-LocalStorage	Səbət məlumatlarının saxlanması
-JSON	Məhsul siyahısının yüklənməsi
-Responsive Dizayn	Mobil və masaüstü uyğunluğu
-Modal + Toast	Müasir sifariş formu və bildiriş sistemi
+Texnologiya	           İzah
+HTML / CSS / JS	      Saytın əsas quruluşu və interaktiv funksiyalar
+LocalStorage	        Səbət məlumatlarının saxlanması
+JSON	                Məhsul siyahısının yüklənməsi
+Responsive Dizayn	    Mobil və masaüstü uyğunluğu
+Modal + Toast	        Müasir sifariş formu və bildiriş sistemi
+
 🔍 Axtarış və Filterlər
 
 Marka, model və il üzrə avtomatik süzgəc.
@@ -79,7 +77,6 @@ final/
 Hər səhifədə unikal <title> və <meta description>
 
 OG (Open Graph) dəstəyi:
-
 <meta property="og:title" content="Forsaj AutoParts – Avto Ehtiyat Hissələri">
 <meta property="og:description" content="Toyota, Kia, Hyundai, Lexus və daha çox markalar üçün ehtiyat hissələri.">
 <meta property="og:image" content="images/logo.png">
@@ -88,21 +85,15 @@ OG (Open Graph) dəstəyi:
 Accessibility üçün:
 
 Hər şəkil üçün alt atributu
-
 aria-label və role atributları
-
 Fokus və klaviatura dəstəyi
 
 🚀 Gələcək Planlar
 
 🔄 Backend API inteqrasiyası (Node.js / Express)
-
 💳 Online ödəniş sistemi (Stripe və s.)
-
 📦 Məhsul idarə paneli (Admin)
-
 🔔 Bildiriş sistemi (toast + notifikasiyalar)
-
 🌍 Dil dəstəyi (AZ / EN / RU)
 
 🧑‍💻 Müəllif və Əlaqə
