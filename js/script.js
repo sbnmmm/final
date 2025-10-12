@@ -1,11 +1,11 @@
 // ----------- Car Filters -------------
 const years = [2004, 2005, 2006, 2007, 2009, 2010, 2011, 2012, 2014, 2017];
-const makes = ['Toyota', 'Kia', 'Hyundai', 'Audi'];
+const makes = ['Toyota', 'Kia', 'Hyundai', 'Byd'];
 const models = {
   'Toyota': ['Prius', 'C7R', 'Yaris', '20 Kuza', '30 Kuza'],
   'Kia': ['Rio', 'Sportage', 'Ceed'],
   'Hyundai': ['Tucson', 'Accent', 'i30', 'Getz', 'Santa Fe'],
-  'Audi': ['A4', 'Q5', 'A6']
+  'Byd': ['Accent', 'Genesis', 'Destroyer']
 };
 
 function populateSelect(selectElement, options) {
@@ -75,9 +75,25 @@ function addToCart(product) {
     cart.push(product);
   }
   saveCart(cart);
-  alert(`${product.name} səbətə əlavə olundu!`);
+  showToast(`${product.name} səbətə əlavə olundu!`);
   updateCartCount();
 }
+function showToast(message) {
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.textContent = message;
+  document.body.appendChild(toast);
+
+  // animasiya ilə göstər
+  setTimeout(() => toast.classList.add('show'), 100);
+
+  // 2 saniyə sonra gizlət
+  setTimeout(() => {
+    toast.classList.remove('show');
+    setTimeout(() => toast.remove(), 500);
+  }, 2000);
+}
+
 
 function updateCartCount() {
   const cart = getCart();

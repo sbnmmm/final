@@ -135,29 +135,9 @@ completeBtn.style.cssText = `
   cursor: pointer;
 `;
 
-completeBtn.addEventListener("click", () => {
-  const customerName = prompt("Zəhmət olmasa adınızı daxil edin:");
-  const customerPhone = prompt("Zəhmət olmasa telefon nömrənizi daxil edin:");
+completeBtn.addEventListener("click", openModal);
 
-  if(!customerName || !customerPhone){
-    alert("Sifariş üçün ad və telefon nömrəsi vacibdir!");
-    return;
-  }
 
-  const order = {
-    customerName,
-    customerPhone,
-    items: cart,
-    total: cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
-  };
-
-  console.log("Sifariş qeydə alındı:", order);
-  alert(`Sifarişiniz qeydə alındı!\nAd: ${customerName}\nTel: ${customerPhone}`);
-
-  cart = [];
-  localStorage.setItem("cart", JSON.stringify(cart));
-  showCart();
-});
 
 function toggleCompleteButton() {
   if(cart.length > 0){
@@ -208,3 +188,73 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.removeItem("searchResults");
   }
 });
+// ----------- Sidebar Menu -------------
+function openMenu() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.body.style.overflow = "hidden"; // Scrollu blokla
+}
+
+function closeMenu() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.body.style.overflow = ""; // Scrollu bərpa et
+}
+
+// ESC düyməsi ilə bağlama
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeMenu();
+});
+// Sidebar linkləri üçün yönləndirmə
+const sidebarLinks = document.querySelectorAll('.sidebar a');
+sidebarLinks.forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const categoryText = link.textContent.trim().toLowerCase();
+
+    // Filtrlənəcək kateqoriyanı localStorage-də saxla
+    localStorage.setItem('selectedCategory', categoryText);
+
+    // home.html səhifəsinə yönləndir
+    window.location.href = 'home.html';
+  });
+});
+// ----------- Modal funksiyaları -------------
+function openModal() {
+  document.getElementById('orderModal').style.display = 'flex';
+}
+
+function closeModal() {
+  document.getElementById('orderModal').style.display = 'none';
+}
+
+// Form submit zamanı
+document.addEventListener("DOMContentLoaded", () => {
+  const orderForm = document.getElementById('orderForm');
+  if (orderForm) {
+    orderForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const customerName = document.getElementById('customerName').value.trim();
+      const customerPhone = document.getElementById('customerPhone').value.trim();
+
+      if (!customerName || !customerPhone) {
+        alert("⚠️ Zəhmət olmasa məlumatları doldurun!");
+        return;
+      }
+
+      const order = {
+        customerName,
+        customerPhone,
+        items: cart,
+        total: cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
+      };
+
+      console.log("Sifariş qeydə alındı:", order);
+      alert(`✅ Sifarişiniz qeydə alındı, ${customerName}!`);
+
+      cart = [];
+      localStorage.setItem("cart", JSON.stringify(cart));
+      showCart();
+      closeModal();
+    });
+  }
+});
+
