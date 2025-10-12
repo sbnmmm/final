@@ -1,8 +1,12 @@
 🚗 Forsaj AutoParts – Forsaj Ehtiyat Hissələri
 
+
+
+ 
 👋 Xoş gəlmisiniz!
 Forsaj AutoParts – avtomobil ehtiyat hissələrinin satışına həsr olunmuş, müasir dizaynlı və interaktiv veb platformadır.
 Burada siz Toyota, Kia, Hyundai, Lexus və digər markalar üçün orijinal və keyfiyyətli hissələri tapa, səbətə əlavə edib sifariş edə bilərsiniz.
+
 
 
 
@@ -21,6 +25,9 @@ Burada siz Toyota, Kia, Hyundai, Lexus və digər markalar üçün orijinal və 
 
 ✅ Dinamik Məlumat – məhsullar JSON fayllarından avtomatik yüklənir.
 
+
+
+
  
 
 🧭 Necə işləyir?
@@ -32,6 +39,9 @@ Burada siz Toyota, Kia, Hyundai, Lexus və digər markalar üçün orijinal və 
 3. Məhsulu seçib “Səbətə əlavə et” düyməsinə basın.
 
 4. “Sifarişi Tamamla” modal pəncərəsi ilə sifariş məlumatınızı daxil edin.
+
+
+
 
 
 
@@ -52,6 +62,8 @@ Modal + Toast	        Müasir sifariş formu və bildiriş sistemi
 
 
 
+
+
 🔍 Axtarış və Filterlər
 
 Marka, model və il üzrə avtomatik süzgəc.
@@ -61,6 +73,11 @@ Sidebar-dakı kateqoriyalara klikləməklə məhsulları filtrləmə.
 Məhsul adı ilə sürətli axtarış (input + Enter və ya Axtar düyməsi).
 
 Filterlər və axtarış nəticələri home.html-də avtomatik göstərilir.
+
+
+
+
+
 
 🛒 Səbət Funksiyaları
 
@@ -76,16 +93,22 @@ Bütün məlumatlar localStorage vasitəsilə yadda saxlanır.
 
 
 
+
+
+
 🌐 SEO və Accessibility
 
 Hər səhifədə unikal <title> və <meta description>
 
 OG (Open Graph) dəstəyi:
+
 <meta property="og:title" content="Forsaj AutoParts – Avto Ehtiyat Hissələri">
 
 <meta property="og:description" content="Toyota, Kia, Hyundai, Lexus və daha çox markalar üçün ehtiyat hissələri.">
 
 <meta property="og:image" content="images/logo.png">
+
+
 
 
 Accessibility üçün:
@@ -95,6 +118,10 @@ Hər şəkil üçün alt atributu
 aria-label və role atributları
 
 Fokus və klaviatura dəstəyi
+
+
+
+
 
 🚀 Gələcək Planlar
 
@@ -107,6 +134,10 @@ Fokus və klaviatura dəstəyi
 🔔 Bildiriş sistemi (toast + notifikasiyalar)
 
 🌍 Dil dəstəyi (AZ / EN / RU)
+
+
+
+
 
 🧑‍💻 Müəllif və Əlaqə
 
