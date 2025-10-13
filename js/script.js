@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const makeSelect = document.getElementById('make');
   const modelSelect = document.getElementById('model');
 
-  if(yearSelect && makeSelect && modelSelect){
+  if (yearSelect && makeSelect && modelSelect) {
     populateSelect(yearSelect, years);
     populateSelect(makeSelect, makes);
 
@@ -117,13 +117,13 @@ function closeMenu() {
 // ----------- Load Products -------------
 function loadProducts() {
   const container = document.getElementById('new_products');
-  if(!container) return;
+  if (!container) return;
 
   fetch('json/new_products.json')
     .then(res => res.json())
     .then(products => {
       allProducts = products;
-      renderProducts(allProducts); 
+      renderProducts(allProducts);
 
       // ----------- Vehicle Filter -------------
       const searchBtn = document.getElementById('searchBtn');
@@ -170,18 +170,24 @@ function loadProducts() {
           if (e.key === 'Enter') handleSearch();
         });
       }
-
       // ----------- Sidebar Category Filter -------------
       const sidebarLinks = document.querySelectorAll('.sidebar a');
       sidebarLinks.forEach(link => {
         link.addEventListener('click', e => {
           e.preventDefault();
-          const category = link.textContent.trim();
-          const filtered = allProducts.filter(p => p.category === category);
+
+          const category = link.textContent.trim().toLowerCase();
+          const filtered = allProducts.filter(p =>
+            p.category && p.category.toLowerCase() === category
+          );
+
           renderProducts(filtered);
+
+          // 🔹 Sidebar avtomatik bağlansın
+          closeMenu();
         });
       });
-
+      
     })
     .catch(err => console.error('Məhsullar alınmadı:', err));
 }
@@ -189,7 +195,7 @@ function loadProducts() {
 // ----------- Render Products -------------
 function renderProducts(products) {
   const container = document.getElementById('new_products');
-  if(!container) return;
+  if (!container) return;
   container.innerHTML = '';
 
   if (products.length === 0) {
@@ -208,6 +214,6 @@ function renderProducts(products) {
       <button class="add-to-cart">Səbətə əlavə et</button>`;
     container.appendChild(card);
 
- card.querySelector('.add-to-cart').addEventListener('click', () => addToCart(product));
+    card.querySelector('.add-to-cart').addEventListener('click', () => addToCart(product));
   });
 }

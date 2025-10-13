@@ -42,7 +42,7 @@ function addToCart(product) {
     cart.push(product);
   }
   saveCart(cart);
- showToast(`${product.name} səbətə əlavə olundu!`);
+  showToast(`${product.name} səbətə əlavə olundu!`);
 
   updateCartCount();
 }
@@ -175,9 +175,16 @@ document.addEventListener('DOMContentLoaded', () => {
       sidebarLinks.forEach(link => {
         link.addEventListener('click', e => {
           e.preventDefault();
+
           const categoryText = link.textContent.trim().toLowerCase();
-          const filtered = allProducts.filter(p => p.category && p.category.toLowerCase() === categoryText);
+          const filtered = allProducts.filter(p =>
+            p.category && p.category.toLowerCase() === categoryText
+          );
+
           renderProducts(filtered);
+
+          // 🔹 Sidebar avtomatik bağlansın
+          closeMenu();
         });
       });
 
@@ -195,18 +202,49 @@ document.addEventListener('DOMContentLoaded', () => {
           renderProducts(filtered.length ? filtered : []);
         });
       }
-
-      // Enter ilə axtarış
+      // Enter ilə axtarış (yenilənmədən)
       const nameSearchInput = document.getElementById('nameSearchInput');
       if (nameSearchInput) {
-        nameSearchInput.addEventListener('keypress', (e) => {
+        nameSearchInput.addEventListener('keydown', e => {
           if (e.key === 'Enter') {
-            e.preventDefault();
-            document.getElementById('nameSearchBtn')?.click();
+            e.preventDefault(); // səhifə refresh olmasın
+            document.getElementById('nameSearchBtn')?.click(); // eyni funksiyanı işə sal
           }
         });
       }
-
+      
     })
     .catch(err => console.error('Məhsullar alınmadı:', err));
 });
+// ----------- Search & Category Results Loader -------------
+document.addEventListener("DOMContentLoaded", () => {
+  fetch('json/products.json')
+    .then(res => res.json())
+    .then(data => {
+      allProducts = data;
+
+      // Axtarış nəticəsi və ya kateqoriya varsa göstər
+      const selectedCategory = localStorage.getItem("selectedCategory");
+      const searchResults = JSON.parse(localStorage.getItem("searchResults") || "[]");
+
+      if (selectedCategory) {
+        const filtered = allProducts.filter(p =>
+          p.category && p.category.toLowerCase() === selectedCategory.toLowerCase()
+        );
+        renderProducts(filtered);
+        localStorage.removeItem("selectedCategory");
+        return;
+      }
+
+      if (searchResults.length > 0) {
+        renderProducts(searchResults);
+        localStorage.removeItem("searchResults");
+        return;
+      }
+
+      // Əgər heç biri yoxdursa, bütün məhsulları göstər
+      renderProducts(allProducts);
+    })
+    .catch(err => console.error("Məhsullar yüklənmədi:", err));
+});
+

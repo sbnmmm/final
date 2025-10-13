@@ -174,3 +174,27 @@ sidebarLinks.forEach(link => {
   });
 });
 
+// ----------- Search by Product Name -------------
+const nameSearchInput = document.getElementById('nameSearchInput');
+const nameSearchBtn = document.getElementById('nameSearchBtn');
+
+if (nameSearchInput && nameSearchBtn) {
+  const handleSearch = () => {
+    const query = nameSearchInput.value.trim().toLowerCase();
+    if (!query) return;
+
+    // Axtarış sorğusunu yadda saxla
+    localStorage.setItem("searchQuery", query);
+
+    // home.html səhifəsinə yönləndir
+    window.location.href = "home.html";
+  };
+
+  nameSearchBtn.addEventListener("click", handleSearch);
+  nameSearchInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleSearch();
+    }
+  });
+}
